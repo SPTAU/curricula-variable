@@ -2,6 +2,7 @@
 // Created by SPTAU on 2020/12/30.
 //
 
+#include <iostream>
 #include <iomanip>
 #include <fstream>
 #include <string>
@@ -23,7 +24,6 @@ Course::Course()
     _semester = "-";
     _maximum = 0;
     _studentAmount = 0;
-    _courseAmount++;
 }
 Course::Course(string &id,string &name,string &period,
        string &credit,string &semester,int &maximum)
@@ -68,53 +68,54 @@ void Course::SetMaximum(int &maximum)               //设置选修人数上限
 {
     _maximum = maximum;
 }
-string Course::GetID()                              //获取课程代码
+string& Course::GetID()                             //获取课程代码
 {
     return _id;
 }
-string Course::GetName()                            //获取课程名称
+string& Course::GetName()                           //获取课程名称
 {
     return _name;
 }
-string Course::GetPeriod()                          //获取总学时
+string& Course::GetPeriod()                         //获取总学时
 {
     return _period;
 }
-string Course::GetCredit()                          //获取学分
+string& Course::GetCredit()                         //获取学分
 {
     return _credit;
 }
-string Course::GetSemester()                        //获取开课学期
+string& Course::GetSemester()                       //获取开课学期
 {
     return _semester;
 }
-int Course::GetMaximum()                            //获取选修人数上限
+int& Course::GetMaximum()                           //获取选修人数上限
 {
     return _maximum;
 }
-int Course::GetStudentAmount()                      //获取选修学生数目
+int& Course::GetStudentAmount()                     //获取选修学生数目
 {
     return _studentAmount;
 }
 void Course::Add(Student stu)                       //添加选课学生
 {
-    struct StudentData tmp = {&stu, stu.GetID(), stu.GetName(), stu.GetDepartment(), stu.GetClass(), stu.GetPhoneNumber()};
-    studentDV.push_back(tmp);
-    studentDM.insert(make_pair(stu.GetID(), studentDV.size() - 1));
-    Sort();
-    _courseAmount = studentDV.size();
+    struct StudentData tmp = {&stu, stu.GetID(), stu.GetName(),
+            stu.GetDepartment(), stu.GetClass(), stu.GetPhoneNumber()};
+    studentDV.push_back(tmp);                                               //在vector最后添加元素
+    studentDM.insert(make_pair(stu.GetID(), studentDV.size() - 1));     //在map最后插入元素
+    Sort();                                                                 //容器排序
+    _studentAmount = studentDV.size();                                      //更新学生数目
 }
 void Course::Delete(string &studentID,bool mode)    //删除选课学生
 {
-    if (mode)
+    if (mode)                                                                   //模式一：被动删除学生，如删除课程
     {
-        studentDV[studentDM[studentID]].ps->Delete(this->_id, false);
-    }
-        studentDV.erase(studentDV.begin() + studentDM[studentID]);
-    studentDMI = studentDM.find(studentID);
-        studentDM.erase(studentDMI);
-        Sort();
-        _studentAmount = studentDV.size();
+        studentDV[studentDM[studentID]].ps->Delete(this->_id, false);   //回调Student类成员函数删除选课信息
+    }                                                                           //模式二：学生主动退选
+        studentDV.erase(studentDV.begin() + studentDM[studentID]);      //删除vector中元素
+        studentDMI = studentDM.find(studentID);
+        studentDM.erase(studentDMI);                                    //删除map中元素
+        Sort();                                                                 //容器排序
+        _studentAmount = studentDV.size();                                      //更新选课数目
 }
 void Course::DisplayCourse()                        //显示选课信息
 {

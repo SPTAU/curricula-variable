@@ -72,46 +72,63 @@ void Student::SetPhoneNumber(string &phoneNumber)   //设置联系方式
 {
     _phoneNumber.assign(phoneNumber);
 }
-string Student::GetID()                             //获取学号
+string& Student::GetID()                            //获取学号
 {
     return _id;
 }
-string Student::GetName()                           //获取姓名
+string& Student::GetName()                          //获取姓名
 {
     return _name;
 }
-string Student::GetGender()                         //获取性别
+string& Student::GetGender()                        //获取性别
 {
     return _gender;
 }
-string Student::GetAge()                            //获取年龄
+string& Student::GetAge()                           //获取年龄
 {
     return _age;
 }
-string Student::GetDepartment()                     //获取系别
+string& Student::GetDepartment()                    //获取系别
 {
     return _department;
 }
-string Student::GetClass()                          //获取班级
+string& Student::GetClass()                         //获取班级
 {
     return _class;
 }
-string Student::GetPhoneNumber()                    //获取联系方式
+string& Student::GetPhoneNumber()                   //获取联系方式
 {
     return _phoneNumber;
 }
+int& Student::GetCourseAmount()                     //获取选课数目
+{
+    return _courseAmount;
+}
+string& Student::GetCourseID(int &index)            //获取课程代码
+{
+    return courseDV[index]._courseID;
+}
 void Student::Add(Course &cour)                     //添加课程
 {
-    if(cour.GetStudentAmount() < cour.GetMaximum())
+    if(cour.GetStudentAmount() < cour.GetMaximum())     //判断所选课程是否满人
     {
-        struct CourseData tmp = {&cour, cour.GetID(), cour.GetName(), cour.GetPeriod(), cour.GetCredit(), cour.GetSemester()};
-        courseDV.push_back(tmp);                     //在vector最后添加元素
-        courseDM.insert(make_pair(cour.GetID(), courseDV.size() - 1));    //在map最后插入元素
-        Sort();                                     //容器排序
-        _courseAmount = courseDV.size();             //更新选课数目
-        cour.Add(*this);
-        cout << cour << endl;
-        cout << "选课成功！" << endl;
+        struct CourseData tmp = {&cour, cour.GetID(), cour.GetName(),
+                cour.GetPeriod(), cour.GetCredit(), cour.GetSemester()};
+        courseDMI = courseDM.find(cour.GetID());
+        if (courseDMI == courseDM.end())                //判断是否已选该课
+        {
+            courseDV.push_back(tmp);                    //在vector最后添加元素
+            courseDM.insert(make_pair(cour.GetID(), courseDV.size() - 1));      //在map最后插入元素
+            Sort();                                     //容器排序
+            _courseAmount = courseDV.size();            //更新选课数目
+            cour.Add(*this);                        //回调Course类成员函数添加学生信息
+            cout << cour << endl;
+            cout << "选课成功！" << endl;
+        }
+        else
+        {
+            cout << "已选该课！" << endl;
+        }
     }
     else
     {
@@ -120,16 +137,16 @@ void Student::Add(Course &cour)                     //添加课程
 }
 void Student::Delete(string &courseID,bool mode)    //删除课程
 {
-    if (mode)
+    courseDMI = courseDM.find(courseID);
+    if (mode)                                       //模式一：学生主动退选
     {
-        courseDMI = courseDM.find(courseID);
-        if (courseDMI != courseDM.end())
+        if (courseDMI != courseDM.end())            //判断是否已选该课
         {
-            courseDV[courseDM[courseID]].pc->Delete(this->_id, false);
-            courseDV.erase(courseDV.begin() + courseDM[courseID]);
-            courseDM.erase(courseDMI);
-            Sort();
-            _courseAmount = courseDV.size();
+            courseDV[courseDM[courseID]].pc->Delete(this->_id, false);      //回调Course类成员函数删除学生信息
+            courseDV.erase(courseDV.begin() + courseDM[courseID]);          //删除vector中元素
+            courseDM.erase(courseDMI);                                      //删除map中元素
+            Sort();                                                                 //容器排序
+            _courseAmount = courseDV.size();                                        //更新选课数目
             cout << courseDV[courseDM[courseID]] << endl;
             cout << "退选成功！" << endl;
         }
@@ -138,12 +155,12 @@ void Student::Delete(string &courseID,bool mode)    //删除课程
             cout << "未选该课！" << endl;
         }
     }
-    else
+    else                                            //模式二：被动退选，如删除学生、删除课程
     {
-        courseDV.erase(courseDV.begin() + courseDM[courseID]);
-        courseDM.erase(courseDMI);
-        Sort();
-        _courseAmount = courseDV.size();
+        courseDV.erase(courseDV.begin() + courseDM[courseID]);              //删除vector中元素
+        courseDM.erase(courseDMI);                                          //删除map中元素
+        Sort();                                                                     //容器排序
+        _courseAmount = courseDV.size();                                            //更新选课数目
     }
 }
 void Student::DisplayStudent()                      //显示学生信息
@@ -161,14 +178,14 @@ void Student::DisplayCourse()                       //显示选课信息
 }
 void Student::Sort()                                //对所选课程进行排序
 {
-    courseDM.clear();
-    sort(courseDV.begin(), courseDV.end(), comp);
+    courseDM.clear();                                                   //清空map容器
+    sort(courseDV.begin(), courseDV.end(), comp);               //对vector容器内元素排序
     for(int i=0;i<_courseAmount;i++)
     {
-        courseDM.insert(make_pair(courseDV[i]._courseID, i));
+        courseDM.insert(make_pair(courseDV[i]._courseID, i));       //依次插入map元素
     }
 }
-bool Student::comp(CourseData &cour1,CourseData &cour2)      //自定义比较标准
+bool Student::comp(CourseData &cour1,CourseData &cour2)                 //自定义比较标准
 {
-    return cour1._courseID<cour2._courseID;
+    return cour1._courseID < cour2._courseID;
 }

@@ -20,6 +20,10 @@ struct CourseData
     string _courseSemester;                 //开课学期
     friend ostream&operator<<(ostream &os,CourseData &cour);
     friend istream&operator>>(istream &is,CourseData &cour);
+    ~CourseData()
+    {
+        delete pc;
+    }
 };
 
 #endif //SYSTEMDESIGN_COURSEDATA_STRUCT_H
