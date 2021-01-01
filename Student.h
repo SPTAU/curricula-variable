@@ -17,13 +17,12 @@ class Course;
 class Student
 {
     vector<CourseData> courseDV;
-    vector<CourseData>::iterator courseDVI;
     map<string,int> courseDM;
     map<string,int>::iterator courseDMI;
 public:
     Student();
-    Student(string &id,string &name,string &gender,string &age,
-            string &department,string &classes,string &phoneNumber);
+    Student(string &id, string &name, string &gender, string &age, string &department,
+            string &classes, string &phoneNumber, int courseAmount = 0);
     ~Student();
 private:
     string _id;                 //学号
@@ -42,6 +41,7 @@ public:
     void SetDepartment(string &department);         //设置系别
     void SetClass(string &classes);                 //设置班级
     void SetPhoneNumber(string &phoneNumber);       //设置联系方式
+    void SetCourseAmount(int &courseAmount);        //设置选课数目
     string &GetID();            //获取学号
     string &GetName();          //获取姓名
     string &GetGender();        //获取性别
@@ -51,7 +51,7 @@ public:
     string &GetPhoneNumber();   //获取联系方式
     int &GetCourseAmount();     //获取选课数目
     string &GetCourseID(int &index);                //获取课程代码
-    void Add(Course &cour);                         //添加课程
+    void Add(Course &cour, bool mode);              //添加课程
     void Delete(string &courseID,bool mode);        //删除课程
     void DisplayStudent();                          //显示学生信息
     void DisplayCourse();                           //显示选课信息
@@ -59,8 +59,6 @@ public:
     static bool comp(CourseData &cour1, CourseData &cour2);                 //自定义比较标准
     friend ostream&operator<<(ostream &os, Student &stu);                   //重载Student输出流
     friend istream&operator>>(istream &is, Student &stu);                   //重载Student输入流
-    friend ostream&operator<<(ostream &os, vector<CourseData>& _vec);       //重载vector<CourseData>输出流
-    friend istream&operator>>(ostream &is, vector<CourseData>& _vec);       //重载vector<CourseData>输入流
 };
 
 #endif //SYSTEMDESIGN_STUDENT_H

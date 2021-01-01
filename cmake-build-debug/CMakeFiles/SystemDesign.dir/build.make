@@ -115,39 +115,67 @@ CMakeFiles/SystemDesign.dir/Student.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SystemDesign.dir/Student.cpp.s"
 	E:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S F:\Data\Program\CPP\SystemDesign\Student.cpp -o CMakeFiles\SystemDesign.dir\Student.cpp.s
 
-CMakeFiles/SystemDesign.dir/StudentManagement.cpp.obj: CMakeFiles/SystemDesign.dir/flags.make
-CMakeFiles/SystemDesign.dir/StudentManagement.cpp.obj: ../StudentManagement.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\Data\Program\CPP\SystemDesign\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SystemDesign.dir/StudentManagement.cpp.obj"
-	E:\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SystemDesign.dir\StudentManagement.cpp.obj -c F:\Data\Program\CPP\SystemDesign\StudentManagement.cpp
+CMakeFiles/SystemDesign.dir/Management.cpp.obj: CMakeFiles/SystemDesign.dir/flags.make
+CMakeFiles/SystemDesign.dir/Management.cpp.obj: ../Management.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\Data\Program\CPP\SystemDesign\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SystemDesign.dir/Management.cpp.obj"
+	E:\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SystemDesign.dir\Management.cpp.obj -c F:\Data\Program\CPP\SystemDesign\Management.cpp
 
-CMakeFiles/SystemDesign.dir/StudentManagement.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SystemDesign.dir/StudentManagement.cpp.i"
-	E:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E F:\Data\Program\CPP\SystemDesign\StudentManagement.cpp > CMakeFiles\SystemDesign.dir\StudentManagement.cpp.i
+CMakeFiles/SystemDesign.dir/Management.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SystemDesign.dir/Management.cpp.i"
+	E:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E F:\Data\Program\CPP\SystemDesign\Management.cpp > CMakeFiles\SystemDesign.dir\Management.cpp.i
 
-CMakeFiles/SystemDesign.dir/StudentManagement.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SystemDesign.dir/StudentManagement.cpp.s"
-	E:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S F:\Data\Program\CPP\SystemDesign\StudentManagement.cpp -o CMakeFiles\SystemDesign.dir\StudentManagement.cpp.s
+CMakeFiles/SystemDesign.dir/Management.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SystemDesign.dir/Management.cpp.s"
+	E:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S F:\Data\Program\CPP\SystemDesign\Management.cpp -o CMakeFiles\SystemDesign.dir\Management.cpp.s
 
-CMakeFiles/SystemDesign.dir/CourseManagement.cpp.obj: CMakeFiles/SystemDesign.dir/flags.make
-CMakeFiles/SystemDesign.dir/CourseManagement.cpp.obj: ../CourseManagement.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\Data\Program\CPP\SystemDesign\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SystemDesign.dir/CourseManagement.cpp.obj"
-	E:\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SystemDesign.dir\CourseManagement.cpp.obj -c F:\Data\Program\CPP\SystemDesign\CourseManagement.cpp
+CMakeFiles/SystemDesign.dir/Operator.cpp.obj: CMakeFiles/SystemDesign.dir/flags.make
+CMakeFiles/SystemDesign.dir/Operator.cpp.obj: ../Operator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\Data\Program\CPP\SystemDesign\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SystemDesign.dir/Operator.cpp.obj"
+	E:\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SystemDesign.dir\Operator.cpp.obj -c F:\Data\Program\CPP\SystemDesign\Operator.cpp
 
-CMakeFiles/SystemDesign.dir/CourseManagement.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SystemDesign.dir/CourseManagement.cpp.i"
-	E:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E F:\Data\Program\CPP\SystemDesign\CourseManagement.cpp > CMakeFiles\SystemDesign.dir\CourseManagement.cpp.i
+CMakeFiles/SystemDesign.dir/Operator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SystemDesign.dir/Operator.cpp.i"
+	E:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E F:\Data\Program\CPP\SystemDesign\Operator.cpp > CMakeFiles\SystemDesign.dir\Operator.cpp.i
 
-CMakeFiles/SystemDesign.dir/CourseManagement.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SystemDesign.dir/CourseManagement.cpp.s"
-	E:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S F:\Data\Program\CPP\SystemDesign\CourseManagement.cpp -o CMakeFiles\SystemDesign.dir\CourseManagement.cpp.s
+CMakeFiles/SystemDesign.dir/Operator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SystemDesign.dir/Operator.cpp.s"
+	E:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S F:\Data\Program\CPP\SystemDesign\Operator.cpp -o CMakeFiles\SystemDesign.dir\Operator.cpp.s
+
+CMakeFiles/SystemDesign.dir/Show.cpp.obj: CMakeFiles/SystemDesign.dir/flags.make
+CMakeFiles/SystemDesign.dir/Show.cpp.obj: ../Show.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\Data\Program\CPP\SystemDesign\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SystemDesign.dir/Show.cpp.obj"
+	E:\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SystemDesign.dir\Show.cpp.obj -c F:\Data\Program\CPP\SystemDesign\Show.cpp
+
+CMakeFiles/SystemDesign.dir/Show.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SystemDesign.dir/Show.cpp.i"
+	E:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E F:\Data\Program\CPP\SystemDesign\Show.cpp > CMakeFiles\SystemDesign.dir\Show.cpp.i
+
+CMakeFiles/SystemDesign.dir/Show.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SystemDesign.dir/Show.cpp.s"
+	E:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S F:\Data\Program\CPP\SystemDesign\Show.cpp -o CMakeFiles\SystemDesign.dir\Show.cpp.s
+
+CMakeFiles/SystemDesign.dir/Control.cpp.obj: CMakeFiles/SystemDesign.dir/flags.make
+CMakeFiles/SystemDesign.dir/Control.cpp.obj: ../Control.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\Data\Program\CPP\SystemDesign\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/SystemDesign.dir/Control.cpp.obj"
+	E:\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SystemDesign.dir\Control.cpp.obj -c F:\Data\Program\CPP\SystemDesign\Control.cpp
+
+CMakeFiles/SystemDesign.dir/Control.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SystemDesign.dir/Control.cpp.i"
+	E:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E F:\Data\Program\CPP\SystemDesign\Control.cpp > CMakeFiles\SystemDesign.dir\Control.cpp.i
+
+CMakeFiles/SystemDesign.dir/Control.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SystemDesign.dir/Control.cpp.s"
+	E:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S F:\Data\Program\CPP\SystemDesign\Control.cpp -o CMakeFiles\SystemDesign.dir\Control.cpp.s
 
 # Object files for target SystemDesign
 SystemDesign_OBJECTS = \
 "CMakeFiles/SystemDesign.dir/main.cpp.obj" \
 "CMakeFiles/SystemDesign.dir/Course.cpp.obj" \
 "CMakeFiles/SystemDesign.dir/Student.cpp.obj" \
-"CMakeFiles/SystemDesign.dir/StudentManagement.cpp.obj" \
-"CMakeFiles/SystemDesign.dir/CourseManagement.cpp.obj"
+"CMakeFiles/SystemDesign.dir/Management.cpp.obj" \
+"CMakeFiles/SystemDesign.dir/Operator.cpp.obj" \
+"CMakeFiles/SystemDesign.dir/Show.cpp.obj" \
+"CMakeFiles/SystemDesign.dir/Control.cpp.obj"
 
 # External object files for target SystemDesign
 SystemDesign_EXTERNAL_OBJECTS =
@@ -155,13 +183,15 @@ SystemDesign_EXTERNAL_OBJECTS =
 SystemDesign.exe: CMakeFiles/SystemDesign.dir/main.cpp.obj
 SystemDesign.exe: CMakeFiles/SystemDesign.dir/Course.cpp.obj
 SystemDesign.exe: CMakeFiles/SystemDesign.dir/Student.cpp.obj
-SystemDesign.exe: CMakeFiles/SystemDesign.dir/StudentManagement.cpp.obj
-SystemDesign.exe: CMakeFiles/SystemDesign.dir/CourseManagement.cpp.obj
+SystemDesign.exe: CMakeFiles/SystemDesign.dir/Management.cpp.obj
+SystemDesign.exe: CMakeFiles/SystemDesign.dir/Operator.cpp.obj
+SystemDesign.exe: CMakeFiles/SystemDesign.dir/Show.cpp.obj
+SystemDesign.exe: CMakeFiles/SystemDesign.dir/Control.cpp.obj
 SystemDesign.exe: CMakeFiles/SystemDesign.dir/build.make
 SystemDesign.exe: CMakeFiles/SystemDesign.dir/linklibs.rsp
 SystemDesign.exe: CMakeFiles/SystemDesign.dir/objects1.rsp
 SystemDesign.exe: CMakeFiles/SystemDesign.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=F:\Data\Program\CPP\SystemDesign\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable SystemDesign.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=F:\Data\Program\CPP\SystemDesign\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable SystemDesign.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\SystemDesign.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

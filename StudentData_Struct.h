@@ -20,10 +20,6 @@ struct StudentData
     string _studentPhoneNumber;             //联系方式
     friend ostream&operator<<(ostream &os,StudentData &stu);
     friend istream&operator>>(istream &is,StudentData &stu);
-    ~StudentData()
-    {
-        delete ps;
-    }
 };
 
 #endif //SYSTEMDESIGN_STUDENTDATA_STRUCT_H

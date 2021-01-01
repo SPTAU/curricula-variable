@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="F:/Data/Program/CPP/SystemDesign/Control.cpp">
+			<Option target="SystemDesign"/>
+		</Unit>
+		<Unit filename="F:/Data/Program/CPP/SystemDesign/Control.h">
+			<Option target="SystemDesign"/>
+		</Unit>
 		<Unit filename="F:/Data/Program/CPP/SystemDesign/Course.cpp">
 			<Option target="SystemDesign"/>
 		</Unit>
@@ -89,13 +95,22 @@
 		<Unit filename="F:/Data/Program/CPP/SystemDesign/CourseData_Struct.h">
 			<Option target="SystemDesign"/>
 		</Unit>
-		<Unit filename="F:/Data/Program/CPP/SystemDesign/CourseManagement.cpp">
+		<Unit filename="F:/Data/Program/CPP/SystemDesign/Management.cpp">
 			<Option target="SystemDesign"/>
 		</Unit>
-		<Unit filename="F:/Data/Program/CPP/SystemDesign/CourseManagement.h">
+		<Unit filename="F:/Data/Program/CPP/SystemDesign/Management.h">
+			<Option target="SystemDesign"/>
+		</Unit>
+		<Unit filename="F:/Data/Program/CPP/SystemDesign/Operator.cpp">
 			<Option target="SystemDesign"/>
 		</Unit>
 		<Unit filename="F:/Data/Program/CPP/SystemDesign/Operator.h">
+			<Option target="SystemDesign"/>
+		</Unit>
+		<Unit filename="F:/Data/Program/CPP/SystemDesign/Show.cpp">
+			<Option target="SystemDesign"/>
+		</Unit>
+		<Unit filename="F:/Data/Program/CPP/SystemDesign/Show.h">
 			<Option target="SystemDesign"/>
 		</Unit>
 		<Unit filename="F:/Data/Program/CPP/SystemDesign/Student.cpp">
@@ -105,12 +120,6 @@
 			<Option target="SystemDesign"/>
 		</Unit>
 		<Unit filename="F:/Data/Program/CPP/SystemDesign/StudentData_Struct.h">
-			<Option target="SystemDesign"/>
-		</Unit>
-		<Unit filename="F:/Data/Program/CPP/SystemDesign/StudentManagement.cpp">
-			<Option target="SystemDesign"/>
-		</Unit>
-		<Unit filename="F:/Data/Program/CPP/SystemDesign/StudentManagement.h">
 			<Option target="SystemDesign"/>
 		</Unit>
 		<Unit filename="F:/Data/Program/CPP/SystemDesign/main.cpp">

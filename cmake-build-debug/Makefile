@@ -142,6 +142,33 @@ SystemDesign/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/build
 .PHONY : SystemDesign/fast
 
+Control.obj: Control.cpp.obj
+
+.PHONY : Control.obj
+
+# target to build an object file
+Control.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/Control.cpp.obj
+.PHONY : Control.cpp.obj
+
+Control.i: Control.cpp.i
+
+.PHONY : Control.i
+
+# target to preprocess a source file
+Control.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/Control.cpp.i
+.PHONY : Control.cpp.i
+
+Control.s: Control.cpp.s
+
+.PHONY : Control.s
+
+# target to generate assembly for a file
+Control.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/Control.cpp.s
+.PHONY : Control.cpp.s
+
 Course.obj: Course.cpp.obj
 
 .PHONY : Course.obj
@@ -169,32 +196,86 @@ Course.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/Course.cpp.s
 .PHONY : Course.cpp.s
 
-CourseManagement.obj: CourseManagement.cpp.obj
+Management.obj: Management.cpp.obj
 
-.PHONY : CourseManagement.obj
+.PHONY : Management.obj
 
 # target to build an object file
-CourseManagement.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/CourseManagement.cpp.obj
-.PHONY : CourseManagement.cpp.obj
+Management.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/Management.cpp.obj
+.PHONY : Management.cpp.obj
 
-CourseManagement.i: CourseManagement.cpp.i
+Management.i: Management.cpp.i
 
-.PHONY : CourseManagement.i
+.PHONY : Management.i
 
 # target to preprocess a source file
-CourseManagement.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/CourseManagement.cpp.i
-.PHONY : CourseManagement.cpp.i
+Management.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/Management.cpp.i
+.PHONY : Management.cpp.i
 
-CourseManagement.s: CourseManagement.cpp.s
+Management.s: Management.cpp.s
 
-.PHONY : CourseManagement.s
+.PHONY : Management.s
 
 # target to generate assembly for a file
-CourseManagement.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/CourseManagement.cpp.s
-.PHONY : CourseManagement.cpp.s
+Management.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/Management.cpp.s
+.PHONY : Management.cpp.s
+
+Operator.obj: Operator.cpp.obj
+
+.PHONY : Operator.obj
+
+# target to build an object file
+Operator.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/Operator.cpp.obj
+.PHONY : Operator.cpp.obj
+
+Operator.i: Operator.cpp.i
+
+.PHONY : Operator.i
+
+# target to preprocess a source file
+Operator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/Operator.cpp.i
+.PHONY : Operator.cpp.i
+
+Operator.s: Operator.cpp.s
+
+.PHONY : Operator.s
+
+# target to generate assembly for a file
+Operator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/Operator.cpp.s
+.PHONY : Operator.cpp.s
+
+Show.obj: Show.cpp.obj
+
+.PHONY : Show.obj
+
+# target to build an object file
+Show.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/Show.cpp.obj
+.PHONY : Show.cpp.obj
+
+Show.i: Show.cpp.i
+
+.PHONY : Show.i
+
+# target to preprocess a source file
+Show.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/Show.cpp.i
+.PHONY : Show.cpp.i
+
+Show.s: Show.cpp.s
+
+.PHONY : Show.s
+
+# target to generate assembly for a file
+Show.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/Show.cpp.s
+.PHONY : Show.cpp.s
 
 Student.obj: Student.cpp.obj
 
@@ -222,33 +303,6 @@ Student.s: Student.cpp.s
 Student.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/Student.cpp.s
 .PHONY : Student.cpp.s
-
-StudentManagement.obj: StudentManagement.cpp.obj
-
-.PHONY : StudentManagement.obj
-
-# target to build an object file
-StudentManagement.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/StudentManagement.cpp.obj
-.PHONY : StudentManagement.cpp.obj
-
-StudentManagement.i: StudentManagement.cpp.i
-
-.PHONY : StudentManagement.i
-
-# target to preprocess a source file
-StudentManagement.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/StudentManagement.cpp.i
-.PHONY : StudentManagement.cpp.i
-
-StudentManagement.s: StudentManagement.cpp.s
-
-.PHONY : StudentManagement.s
-
-# target to generate assembly for a file
-StudentManagement.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SystemDesign.dir\build.make CMakeFiles/SystemDesign.dir/StudentManagement.cpp.s
-.PHONY : StudentManagement.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -286,18 +340,24 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... SystemDesign
+	@echo ... Control.obj
+	@echo ... Control.i
+	@echo ... Control.s
 	@echo ... Course.obj
 	@echo ... Course.i
 	@echo ... Course.s
-	@echo ... CourseManagement.obj
-	@echo ... CourseManagement.i
-	@echo ... CourseManagement.s
+	@echo ... Management.obj
+	@echo ... Management.i
+	@echo ... Management.s
+	@echo ... Operator.obj
+	@echo ... Operator.i
+	@echo ... Operator.s
+	@echo ... Show.obj
+	@echo ... Show.i
+	@echo ... Show.s
 	@echo ... Student.obj
 	@echo ... Student.i
 	@echo ... Student.s
-	@echo ... StudentManagement.obj
-	@echo ... StudentManagement.i
-	@echo ... StudentManagement.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

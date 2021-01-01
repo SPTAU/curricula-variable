@@ -3,11 +3,7 @@
 //
 
 #include <iostream>
-#include <iomanip>
-#include <fstream>
 #include <string>
-#include <map>
-#include <vector>
 #include <algorithm>
 #include "CourseData_Struct.h"
 #include "Course.h"
@@ -17,11 +13,11 @@ using namespace std;
 
 Course::Course()
 {
-    _id = "-";
-    _name = "-";
-    _period = "-";
-    _credit = "-";
-    _semester = "-";
+    _id = "-1";
+    _name = "-1";
+    _period = "-1";
+    _credit = "-1";
+    _semester = "-1";
     _maximum = 0;
     _studentAmount = 0;
 }
@@ -64,7 +60,7 @@ void Course::SetSemester(string &semester)          //设置开课学期
 {
     _semester.assign(semester);
 }
-void Course::SetMaximum(int &maximum)               //设置选修人数上限
+void Course::SetMaximum(int maximum)                //设置选修人数上限
 {
     _maximum = maximum;
 }
@@ -111,6 +107,7 @@ void Course::Delete(string &studentID,bool mode)    //删除选课学生
     {
         studentDV[studentDM[studentID]].ps->Delete(this->_id, false);   //回调Student类成员函数删除选课信息
     }                                                                           //模式二：学生主动退选
+        delete studentDV[studentDM[studentID]].ps;
         studentDV.erase(studentDV.begin() + studentDM[studentID]);      //删除vector中元素
         studentDMI = studentDM.find(studentID);
         studentDM.erase(studentDMI);                                    //删除map中元素
@@ -119,16 +116,18 @@ void Course::Delete(string &studentID,bool mode)    //删除选课学生
 }
 void Course::DisplayCourse()                        //显示选课信息
 {
-    //清屏
+    system("cls");
     cout << *this << endl;
+    system("pause");
 }
 void Course::DisplayStudent()                       //显示选课学生信息
 {
-    //清屏
+    system("cls");
     for (int i=0;i<_studentAmount;i++)
     {
         cout << studentDV[i] << endl;
     }
+    system("pause");
 }
 void Course::Sort()                                 //对选课学生进行排序
 {

@@ -3,22 +3,19 @@
 //
 
 #include <iostream>
-#include <iomanip>
-#include <fstream>
-#include <string>
 #include <map>
 #include <vector>
-#include <algorithm>
 #include "CourseData_Struct.h"
 #include "StudentData_Struct.h"
 #include "Course.h"
 #include "Student.h"
-#include "Operator.h"
+#include "Management.h"
+#include "Control.h"
 using namespace std;
 
-
-
-int main() {
-    std::cout << "Hello, World!" << std::endl;
+int main()
+{
+    Control C;
+    C.Menu();
     return 0;
 }
