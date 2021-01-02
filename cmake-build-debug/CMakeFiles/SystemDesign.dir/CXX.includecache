@@ -9,10 +9,6 @@
 F:/Data/Program/CPP/SystemDesign/Control.cpp
 iostream
 -
-iomanip
--
-fstream
--
 string
 -
 map
@@ -33,8 +29,6 @@ Management.h
 F:/Data/Program/CPP/SystemDesign/Management.h
 Show.h
 F:/Data/Program/CPP/SystemDesign/Show.h
-Operator.h
-F:/Data/Program/CPP/SystemDesign/Operator.h
 Control.h
 F:/Data/Program/CPP/SystemDesign/Control.h
 
@@ -77,6 +71,8 @@ string
 F:/Data/Program/CPP/SystemDesign/Management.cpp
 iostream
 -
+sstream
+-
 string
 -
 algorithm
@@ -93,6 +89,8 @@ Operator.h
 F:/Data/Program/CPP/SystemDesign/Operator.h
 Management.h
 F:/Data/Program/CPP/SystemDesign/Management.h
+Show.h
+F:/Data/Program/CPP/SystemDesign/Show.h
 
 F:/Data/Program/CPP/SystemDesign/Management.h
 iostream
@@ -114,6 +112,8 @@ F:/Data/Program/CPP/SystemDesign/Course.h
 
 F:/Data/Program/CPP/SystemDesign/Operator.cpp
 iostream
+-
+sstream
 -
 Operator.h
 F:/Data/Program/CPP/SystemDesign/Operator.h
@@ -142,14 +142,6 @@ F:/Data/Program/CPP/SystemDesign/Course.h
 Student.h
 F:/Data/Program/CPP/SystemDesign/Student.h
 
-F:/Data/Program/CPP/SystemDesign/Show.cpp
-iostream
--
-iomanip
--
-Show.h
-F:/Data/Program/CPP/SystemDesign/Show.h
-
 F:/Data/Program/CPP/SystemDesign/Show.h
 iostream
 -
@@ -160,8 +152,6 @@ iostream
 string
 -
 algorithm
--
-iomanip
 -
 CourseData_Struct.h
 F:/Data/Program/CPP/SystemDesign/CourseData_Struct.h
@@ -191,17 +181,9 @@ string
 F:/Data/Program/CPP/SystemDesign/main.cpp
 iostream
 -
-iomanip
--
-fstream
--
-string
--
 map
 -
 vector
--
-algorithm
 -
 CourseData_Struct.h
 F:/Data/Program/CPP/SystemDesign/CourseData_Struct.h
@@ -215,8 +197,4 @@ Management.h
 F:/Data/Program/CPP/SystemDesign/Management.h
 Control.h
 F:/Data/Program/CPP/SystemDesign/Control.h
-Show.h
-F:/Data/Program/CPP/SystemDesign/Show.h
-Operator.h
-F:/Data/Program/CPP/SystemDesign/Operator.h
 

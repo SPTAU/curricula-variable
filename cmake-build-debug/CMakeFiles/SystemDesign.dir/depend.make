@@ -6,7 +6,6 @@ CMakeFiles/SystemDesign.dir/Control.cpp.obj: ../Control.h
 CMakeFiles/SystemDesign.dir/Control.cpp.obj: ../Course.h
 CMakeFiles/SystemDesign.dir/Control.cpp.obj: ../CourseData_Struct.h
 CMakeFiles/SystemDesign.dir/Control.cpp.obj: ../Management.h
-CMakeFiles/SystemDesign.dir/Control.cpp.obj: ../Operator.h
 CMakeFiles/SystemDesign.dir/Control.cpp.obj: ../Show.h
 CMakeFiles/SystemDesign.dir/Control.cpp.obj: ../Student.h
 CMakeFiles/SystemDesign.dir/Control.cpp.obj: ../StudentData_Struct.h
@@ -23,6 +22,7 @@ CMakeFiles/SystemDesign.dir/Management.cpp.obj: ../CourseData_Struct.h
 CMakeFiles/SystemDesign.dir/Management.cpp.obj: ../Management.cpp
 CMakeFiles/SystemDesign.dir/Management.cpp.obj: ../Management.h
 CMakeFiles/SystemDesign.dir/Management.cpp.obj: ../Operator.h
+CMakeFiles/SystemDesign.dir/Management.cpp.obj: ../Show.h
 CMakeFiles/SystemDesign.dir/Management.cpp.obj: ../Student.h
 CMakeFiles/SystemDesign.dir/Management.cpp.obj: ../StudentData_Struct.h
 
@@ -47,8 +47,6 @@ CMakeFiles/SystemDesign.dir/main.cpp.obj: ../Control.h
 CMakeFiles/SystemDesign.dir/main.cpp.obj: ../Course.h
 CMakeFiles/SystemDesign.dir/main.cpp.obj: ../CourseData_Struct.h
 CMakeFiles/SystemDesign.dir/main.cpp.obj: ../Management.h
-CMakeFiles/SystemDesign.dir/main.cpp.obj: ../Operator.h
-CMakeFiles/SystemDesign.dir/main.cpp.obj: ../Show.h
 CMakeFiles/SystemDesign.dir/main.cpp.obj: ../Student.h
 CMakeFiles/SystemDesign.dir/main.cpp.obj: ../StudentData_Struct.h
 CMakeFiles/SystemDesign.dir/main.cpp.obj: ../main.cpp

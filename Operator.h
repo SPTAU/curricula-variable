@@ -18,11 +18,11 @@
 #include "Student.h"
 using namespace std;
 
-ostream&operator<<(ostream &os,Student &stu);
-istream&operator>>(istream &is,Student &stu);
-ostream&operator<<(ostream &os,Course &cour);
-istream&operator>>(istream &is,Course &cour);
-ostream&operator<<(ostream &os,StudentData &stu);
-ostream&operator<<(ostream &os,CourseData &cour);
+ostream&operator<<(ostream &os,Student &stu);       //重载Student类的输出流
+istream&operator>>(istream &is,Student &stu);       //重载Student类的输入流
+ostream&operator<<(ostream &os,Course &cour);       //重载Course类的输出流
+istream&operator>>(istream &is,Course &cour);       //重载Course类的输入流
+ostream&operator<<(ostream &os,StudentData &stu);   //重载StudentData结构体的输出流
+ostream&operator<<(ostream &os,CourseData &cour);   //重载CourseData结构体的输出流
 
 #endif //SYSTEMDESIGN_OPERATOR_H

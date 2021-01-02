@@ -7,7 +7,6 @@ CMakeFiles/SystemDesign.dir/Control.cpp.obj
  F:/Data/Program/CPP/SystemDesign/Course.h
  F:/Data/Program/CPP/SystemDesign/CourseData_Struct.h
  F:/Data/Program/CPP/SystemDesign/Management.h
- F:/Data/Program/CPP/SystemDesign/Operator.h
  F:/Data/Program/CPP/SystemDesign/Show.h
  F:/Data/Program/CPP/SystemDesign/Student.h
  F:/Data/Program/CPP/SystemDesign/StudentData_Struct.h
@@ -24,6 +23,7 @@ CMakeFiles/SystemDesign.dir/Management.cpp.obj
  F:/Data/Program/CPP/SystemDesign/Management.cpp
  F:/Data/Program/CPP/SystemDesign/Management.h
  F:/Data/Program/CPP/SystemDesign/Operator.h
+ F:/Data/Program/CPP/SystemDesign/Show.h
  F:/Data/Program/CPP/SystemDesign/Student.h
  F:/Data/Program/CPP/SystemDesign/StudentData_Struct.h
 CMakeFiles/SystemDesign.dir/Operator.cpp.obj
@@ -48,8 +48,6 @@ CMakeFiles/SystemDesign.dir/main.cpp.obj
  F:/Data/Program/CPP/SystemDesign/Course.h
  F:/Data/Program/CPP/SystemDesign/CourseData_Struct.h
  F:/Data/Program/CPP/SystemDesign/Management.h
- F:/Data/Program/CPP/SystemDesign/Operator.h
- F:/Data/Program/CPP/SystemDesign/Show.h
  F:/Data/Program/CPP/SystemDesign/Student.h
  F:/Data/Program/CPP/SystemDesign/StudentData_Struct.h
  F:/Data/Program/CPP/SystemDesign/main.cpp

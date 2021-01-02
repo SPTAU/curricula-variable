@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Control.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Control.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Course.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Course.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/CourseData_Struct.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Management.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Management.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Operator.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Operator.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Show.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Show.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Student.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Student.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/StudentData_Struct.h" charset="GBK" />
     <file url="file://$PROJECT_DIR$/main.cpp" charset="GBK" />
   </component>
 </project>

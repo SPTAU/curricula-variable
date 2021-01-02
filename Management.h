@@ -22,39 +22,39 @@ public:
     Management();
     ~Management();
 private:
-    int _studentTotal;
-    int _courseTotal;
+    int _studentTotal;                                          //Ñ§Éú×ÜÊı
+    int _courseTotal;                                           //¿Î³Ì×ÜÊı
 protected:
-    vector<Student> studentV;
-    vector<Student>::iterator studentVI;
-    map<string,int> studentM;
-    map<string,int>::iterator studentMI;
-    vector<Course> courseV;
-    map<string,int> courseM;
-    map<string,int>::iterator courseMI;
+    vector<Student> studentV;                                   //StudentµÄVectorÈİÆ÷
+    vector<Student>::iterator studentVI;                        //StudentµÄVectorÈİÆ÷µÄµü´úÆ÷
+    map<string,int> studentM;                                   //StudentµÄMapÈİÆ÷
+    map<string,int>::iterator studentMI;                        //StudentµÄMapÈİÆ÷µÄµü´úÆ÷
+    vector<Course> courseV;                                     //StudentµÄVectorÈİÆ÷
+    map<string,int> courseM;                                    //StudentµÄMapÈİÆ÷
+    map<string,int>::iterator courseMI;                         //StudentµÄMapÈİÆ÷µÄµü´úÆ÷
 public:
-    void AddStudent();
-    void DeleteStudent();
-    void EditStudent();
-    int FindStudent(string &studentData, int mode);
-    int &TotalStudent();
-    void PrintStudent();
-    void SaveStudent();
-    void LoadStudent();
-    void SortStudent();
-    static bool CompStudent(Student &stu1, Student &stu2);//è‡ªå®šä¹‰æ¯”è¾ƒæ ‡å‡†
-    void StudentAddCourse(string &courseID);
-    void StudentDeleteCourse(string &courseID);
-    void AddCourse();
-    void DeleteCourse();
-    void EditCourse();
-    int FindCourse(string &studentData, int mode);
-    int &TotalCourse();
-    void PrintCourse();
-    void SaveCourse();
-    void LoadCourse();
-    void SortCourse();
-    static bool CompCourse(Course &cour1, Course &cour2);//è‡ªå®šä¹‰æ¯”è¾ƒæ ‡å‡†
+    void AddStudent();                                          //¹ÜÀíÔ±Ìí¼ÓÑ§Éú
+    void DeleteStudent();                                       //¹ÜÀíÔ±É¾³ıÑ§Éú
+    void EditStudent();                                         //¹ÜÀíÔ±±à¼­Ñ§Éú
+    int FindStudent(string &studentData, int mode);             //¹ÜÀíÔ±²éÑ¯Ñ§Éú
+    int &TotalStudent();                                        //»ñÈ¡Ñ§Éú×ÜÊı
+    void PrintStudent();                                        //ÏÔÊ¾ËùÓĞÑ§ÉúĞÅÏ¢
+    void SaveStudent();                                         //±£´æÑ§ÉúÊı¾İ
+    void LoadStudent();                                         //¼ÓÔØÑ§ÉúÊı¾İ
+    void SortStudent();                                         //¶ÔÑ§ÉúÈİÆ÷ÄÚÑ§Éú½øĞĞÅÅĞò
+    static bool CompStudent(Student &stu1, Student &stu2);      //×Ô¶¨Òå±È½Ï±ê×¼
+    void StudentAddCourse(string &courseID);                    //Ñ§ÉúÑ¡ĞŞ¿Î³Ì
+    void StudentDeleteCourse(string &courseID);                 //Ñ§ÉúÍËÑ¡¿Î³Ì
+    void AddCourse();                                           //¹ÜÀíÔ±Ìí¼Ó¿Î³Ì
+    void DeleteCourse();                                        //¹ÜÀíÔ±É¾³ı¿Î³Ì
+    void EditCourse();                                          //¹ÜÀíÔ±±à¼­¿Î³Ì
+    int FindCourse(string &studentData, int mode);              //¹ÜÀíÔ±²éÑ¯¿Î³Ì
+    int &TotalCourse();                                         //»ñÈ¡¿Î³Ì×ÜÊı
+    void PrintCourse();                                         //ÏÔÊ¾ËùÓĞ¿Î³ÌĞÅÏ¢
+    void SaveCourse();                                          //±£´æ¿Î³ÌÊı¾İ
+    void LoadCourse();                                          //¼ÓÔØ¿Î³ÌÊı¾İ
+    void SortCourse();                                          //¶Ô¿Î³ÌÈİÆ÷ÄÚ¿Î³Ì½øĞĞÅÅĞò
+    static bool CompCourse(Course &cour1, Course &cour2);       //×Ô¶¨Òå±È½Ï±ê×¼
 };
 
 

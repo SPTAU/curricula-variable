@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <algorithm>
 #include "CourseData_Struct.h"
@@ -21,148 +22,167 @@ Management::Management()
 }
 Management::~Management() = default;
 
-void Management::AddStudent()
+void Management::AddStudent()                                   //¹ÜÀíÔ±Ìí¼Ó¿Î³Ì
 {
-    system("cls");
+    system("cls");                                      //ÇåÆÁ
     while (true)
     {
         Student tmpStudent;
         cout << "\n" << endl;
-        cout << "è¯·ä¾æ¬¡è¾“å…¥å­¦å·ã€å§“åã€æ€§åˆ«ã€å¹´é¾„ã€ç³»åˆ«ã€ç­çº§ã€è”ç³»æ–¹å¼ï¼Œè¾“å…¥-1ç»“æŸ"<<endl;
+        cout << "ÇëÒÀ´ÎÊäÈëÑ§ºÅ¡¢ĞÕÃû¡¢ĞÔ±ğ¡¢ÄêÁä¡¢Ïµ±ğ¡¢°à¼¶¡¢ÁªÏµ·½Ê½£¬ÊäÈë-1½áÊø"<<endl;
         cin >> tmpStudent;
-        if(tmpStudent.GetID() != "-1")
+        if(tmpStudent.GetID() != "-1")                          //ÈôÊäÈë²»Îª"-1"
         {
-            studentMI = studentM.find(tmpStudent.GetID());
-            if (studentMI == studentM.end())
+            studentMI = studentM.find(tmpStudent.GetID());      //²éÑ¯Ä¿±êÑ§Éú
+            if (studentMI == studentM.end())                    //ÈôÎ´ÕÒµ½Ä¿±êÑ§Éú
             {
-                studentV.push_back(tmpStudent);
-                studentM.insert(make_pair(tmpStudent.GetID(), studentV.size() - 1));
-                SortStudent();
-                cout << "æˆåŠŸæ·»åŠ å­¦ç”Ÿï¼" << endl;
+                studentV.push_back(tmpStudent);                 //¼ÓÔØµ½VectorÈİÆ÷ÖĞ
+                studentM.insert(make_pair(tmpStudent.GetID(), studentV.size() - 1));        //²åÈëµ½MapÈİÆ÷ÖĞ
+                _studentTotal++;                                //¸üĞÂÑ§ÉúÊıÄ¿
+                SortStudent();                                  //¶ÔÑ§ÉúÈİÆ÷ÄÚÑ§Éú½øĞĞÅÅĞò
+                cout << "³É¹¦Ìí¼ÓÑ§Éú£¡" << endl;
             }
-            else
+            else                                                //ÈôÕÒµ½Ä¿±êÑ§Éú
             {
-                cout << "æ­¤å­¦å·å­¦ç”Ÿå·²å­˜åœ¨ï¼" << endl;
+                cout << "´ËÑ§ºÅÑ§ÉúÒÑ´æÔÚ£¡" << endl;
             }
         }
-        else
+        else                                                    //Ìø³öwhileÑ­»·
         {
             break;
         }
-        system("pause");
+        system("pause");                                //ÊäÈëÈÎÒâ¼ü¼ÌĞø
     }
 }
-void Management::DeleteStudent()
+void Management::DeleteStudent()                                //¹ÜÀíÔ±É¾³ıÑ§Éú
 {
     string studentID;
-    system("cls");
+    system("cls");                                      //ÇåÆÁ
     while(true)
     {
         cout << "\n" << endl;
-        cout << "è¾“å…¥è¦åˆ é™¤çš„å­¦ç”Ÿçš„å­¦å·,è¾“å…¥-1ç»“æŸ" << endl;
+        cout << "ÊäÈëÒªÉ¾³ıµÄÑ§ÉúµÄÑ§ºÅ,ÊäÈë-1½áÊø" << endl;
         cin >> studentID;
-        if(studentID != "-1")
+        if(studentID != "-1")                                   //ÈôÊäÈë²»Îª"-1"
         {
-            studentMI = studentM.find(studentID);
-            if (studentMI != studentM.end())
+            studentMI = studentM.find(studentID);               //²éÑ¯Ä¿±ê¿Î³Ì
+            if (studentMI != studentM.end())                    //ÈôÕÒµ½Ä¿±ê¿Î³Ì
             {
-                studentV.erase(studentV.begin() + studentM[studentID]);          //åˆ é™¤vectorä¸­å…ƒç´ 
-                studentM.erase(studentMI);                                      //åˆ é™¤mapä¸­å…ƒç´ 
-                SortStudent();                                                                 //å®¹å™¨æ’åº
-                _studentTotal = studentV.size();                                        //æ›´æ–°é€‰è¯¾æ•°ç›®
-                cout << "æˆåŠŸåˆ é™¤å­¦ç”Ÿï¼" << endl;
+                studentV.erase(studentV.begin() + studentM[studentID]);     //É¾³ıvectorÖĞÔªËØ
+                studentM.erase(studentMI);              //É¾³ımapÖĞÔªËØ
+                _studentTotal = studentV.size();                //¸üĞÂÑ¡¿ÎÊıÄ¿
+                SortStudent();                                  //ÈİÆ÷ÅÅĞò
+                cout << "³É¹¦É¾³ıÑ§Éú£¡" << endl;
             }
-            else
+            else                                                //ÈôÎ´ÕÒµ½Ä¿±ê¿Î³Ì
             {
-                cout << "è®°å½•ä¸ºç©ºï¼" << endl;
+                cout << "¼ÇÂ¼Îª¿Õ£¡" << endl;
             }
         }
-        else
+        else                                                    //Ìø³öwhileÑ­»·
         {
             break;
         }
-        system("pause");
+        system("pause");                                //ÊäÈëÈÎÒâ¼ü¼ÌĞø
     }
 }
-void Management::EditStudent()
+void Management::EditStudent()                                  //¹ÜÀíÔ±±à¼­Ñ§Éú
 {
     string studentID;
-    system("cls");
+    Student tmpStudent;
+    system("cls");                                      //ÇåÆÁ
     while(true)
     {
         cout << "\n" << endl;
-        cout << "è¾“å…¥è¦ä¿®æ”¹çš„å­¦ç”Ÿçš„å­¦å·,è¾“å…¥-1ç»“æŸ" << endl;
+        cout << "ÊäÈëÒªĞŞ¸ÄµÄÑ§ÉúµÄÑ§ºÅ,ÊäÈë-1½áÊø" << endl;
         cin >> studentID;
-        if(studentID != "-1")
+        if(studentID != "-1")                                   //ÈôÊäÈë²»Îª"-1"
         {
-            studentMI = studentM.find(studentID);
-            if (studentMI == studentM.end())
+            studentMI = studentM.find(studentID);               //²éÑ¯Ä¿±êÑ§Éú
+            if (studentMI == studentM.end())                    //ÈôÕÒµ½Ä¿±êÑ§Éú
             {
-                cout << "ä¿®æ”¹å‰çš„ä¿¡æ¯ï¼š" << endl;
+                cout << "\n" << endl;
+                cout << "ĞŞ¸ÄÇ°µÄĞÅÏ¢£º" << endl;
+                cout << "*******************************************************************************************************"
+                        "****************"  << endl;
                 cout << studentV[studentM[studentID]] << endl;
-                cin >> studentV[studentM[studentID]];
-                cout << "ä¿®æ”¹åçš„ä¿¡æ¯ï¼š" << endl;
-                cout << studentV[studentM[studentID]] << endl;
-                SortStudent();
-            } else {
-                cout << "è®°å½•ä¸ºç©ºï¼" << endl;
+                ShowEditStudentPrompt();
+                cin >> tmpStudent;
+                if (FindCourse(tmpStudent.GetID(),true) == -1)      //²éÑ¯ÊÇ·ñ´æÔÚÏàÍ¬Ñ§ºÅÑ§Éú
+                {
+                    studentV[studentM[studentID]] = tmpStudent; //ÈôÕÒµ½ÏàÍ¬Ñ§ºÅÑ§Éú
+                    cout << "\n" << endl;
+                    cout << "ĞŞ¸ÄºóµÄĞÅÏ¢£º" << endl;
+                    cout << "*******************************************************************************************************"
+                            "****************"  << endl;
+                    cout << studentV[studentM[studentID]] << endl;          //ÏÔÊ¾ĞŞ¸ÄºóĞÅÏ¢
+                    SortStudent();                              //¶ÔÑ§ÉúÈİÆ÷ÄÚÑ§Éú½øĞĞÅÅĞò
+                    cout << "³É¹¦ĞŞ¸ÄÑ§Éú£¡" << endl;
+                }
+                else                                            //ÈôÕÒµ½ÏàÍ¬Ñ§ºÅÑ§Éú
+                {
+                    cout << "´ËÑ§ºÅÑ§ÉúÒÑ´æÔÚ£¡" << endl;
+                }
+            }
+            else                                                //ÈôÎ´ÕÒµ½Ä¿±êÑ§Éú
+            {
+                cout << "¼ÇÂ¼Îª¿Õ£¡" << endl;
             }
         }
-        else
+        else                                                    //Ìø³öwhileÑ­»·
         {
             break;
         }
     }
-    system("pause");
+    system("pause");                                    //ÊäÈëÈÎÒâ¼ü¼ÌĞø
 }
-int Management::FindStudent(string &studentData, int mode)
+int Management::FindStudent(string &studentData, int mode)      //¹ÜÀíÔ±²éÑ¯Ñ§Éú
 {
-    if (mode)                                           //æ¨¡å¼ä¸€ï¼šæŸ¥è¯¢å­¦å·
+    if (mode)                                                   //Ä£Ê½Ò»£º²éÑ¯Ñ§ºÅ
     {
-        for(int i = 0;i < _studentTotal;i++)
+        for(int i = 0;i < _studentTotal;i++)                    //±éÀúCourseÀàµÄVectorÈİÆ÷
         {
             if(studentV[i].GetID() == studentData)
             {
-                return i;
+                return i;                                       //·µ»ØÄ¿±ê¿Î³ÌµÄÏÂ±ê
             }
         }
     }
-    else                                                //æ¨¡å¼äºŒï¼šæŸ¥è¯¢å§“å
+    else                                                        //Ä£Ê½¶ş£º²éÑ¯ĞÕÃû
     {
-        for(int i = 0;i < _studentTotal;i++)
+        for(int i = 0;i < _studentTotal;i++)                    //±éÀúCourseÀàµÄVectorÈİÆ÷
         {
             if(studentV[i].GetName() == studentData)
             {
-                return i;
+                return i;                                       //·µ»ØÄ¿±ê¿Î³ÌµÄÏÂ±ê
             }
         }
     }
-    return -1;
+    return -1;                                                  //²éÑ¯Ê§°Ü£¬·µ»Ø-1
 }
-int& Management::TotalStudent()
+int& Management::TotalStudent()                                 //»ñÈ¡Ñ§Éú×ÜÊı
 {
-    system("cls");
-    ShowTotalStudentPrompt();
-    cout << _studentTotal << endl;
-    system("pause");
-    return _studentTotal;
+    system("cls");                                      //ÇåÆÁ
+    ShowTotalStudentPrompt();                                   //ÏÔÊ¾Ñ§Éú×ÜÊıÌáÊ¾
+    cout << _studentTotal << endl;                              //ÏÔÊ¾Ñ§Éú×ÜÊı
+    system("pause");                                    //ÊäÈëÈÎÒâ¼ü¼ÌĞø
+    return _studentTotal;                                       //·µ»ØÑ§Éú×ÜÊı
 }
-void Management::PrintStudent()
+void Management::PrintStudent()                                 //ÏÔÊ¾ËùÓĞÑ§ÉúĞÅÏ¢
 {
-    system("cls");
-    ShowStudentDataHeader();
-    for (int i=0;i<_studentTotal;i++)
+    system("cls");                                      //ÇåÆÁ
+    ShowStudentDataHeader();                                    //ÏÔÊ¾Ñ§ÉúÁĞ±í±íÍ·
+    for (int i=0;i<_studentTotal;i++)                           //ÒÀ´ÎÏÔÊ¾Ñ§ÉúĞÅÏ¢
     {
         cout << studentV[i] << endl;
     }
-    system("pause");
 }
-void Management::SaveStudent()
+void Management::SaveStudent()                                  //±£´æÑ§ÉúÊı¾İ
 {
-    ofstream outfile("3118002296_student.txt",ios::out|ios::trunc);
-    if(outfile)
+    ofstream outfile("F:\\Data\\Program\\CPP\\SystemDesign\\3118002296_student.txt",ios::out|ios::trunc);       //¸²¸ÇĞ´Èë·½Ê½´ò¿ªÎÄ¼ş
+    if(outfile)                                                 //Èô³É¹¦´ò¿ª
     {
-        for(int i = 0;i < _studentTotal;i++)
+        for(int i = 0;i < _studentTotal;i++)                    //ÒÀ´Îµ¼ÈëÑ§ÉúĞÅÏ¢
         {
             outfile << studentV[i].GetID() << "\t" << studentV[i].GetName() << "\t" << studentV[i].GetGender() << "\t";
             outfile << studentV[i].GetAge() << "\t" << studentV[i].GetDepartment() << studentV[i].GetClass() << "\t";
@@ -172,306 +192,331 @@ void Management::SaveStudent()
                 outfile << studentV[i].GetCourseID(j) << endl;
             }
         }
-        outfile << "-1" << endl;
-        outfile.close();
-        cout << "å­¦ç”Ÿæ•°æ®ä¿å­˜æˆåŠŸï¼" << endl;
-        system("pause");
-        system("cls");
+        outfile << "-1" << endl;                                //ÊäÈë½áÊø±êÊ¶
+        outfile.close();                                        //¹Ø±ÕÎÄ¼ş
+        cout << "Ñ§ÉúÊı¾İ±£´æ³É¹¦£¡" << endl;
+        system("pause");                                //ÊäÈëÈÎÒâ¼ü¼ÌĞø
+        system("cls");                                  //ÇåÆÁ
     }
     else
     {
-        cout << "open 3118002296_student.txt error!" <<endl;
-        exit(1);
+        cout << "open 3118002296_student.txt error!" <<endl;    //ÌáÊ¾´íÎóĞÅÏ¢
     }
 }
-void Management::LoadStudent()
+void Management::LoadStudent()                                  //¼ÓÔØÑ§ÉúÊı¾İ
 {
     int tmpCourseAmount;
     string tmpCourseID;
     Student tmpStudent;
-    ifstream infile("3118002296_student.txt",ios::in);
-    if(!infile)
+    ifstream infile("F:\\Data\\Program\\CPP\\SystemDesign\\3118002296_student.txt",ios::in);                //Ö»¶Á·½Ê½´ò¿ªÎÄ¼ş
+    if(infile)
     {
-        studentV.clear();
-        cout << "\t" << setw(10) << "å­¦å·" << "\t" << setw(8) << "å§“å" << "\t" << setw(4) << "æ€§åˆ«";
-        cout << "\t" << setw(4) << "å¹´é¾„" << "\t" << setw(20) << "ç³»åˆ«";
-        cout << "\t" << setw(20) << "ç­çº§"<< "\t" << setw(11) << "è”ç³»æ–¹å¼"  << endl;
-        while(infile >> tmpStudent)
+        studentV.clear();                                       //Çå¿ÕVectorÈİÆ÷
+        cout << "\t" << setw(10) << "Ñ§ºÅ" << "\t" << setw(8) << "ĞÕÃû" << "\t" << setw(4) << "ĞÔ±ğ";
+        cout << "\t" << setw(4) << "ÄêÁä" << "\t" << setw(20) << "Ïµ±ğ";
+        cout << "\t" << setw(20) << "°à¼¶"<< "\t" << setw(11) << "ÁªÏµ·½Ê½"  << endl;
+        while(infile >> tmpStudent)                             //½«ÎÄ¼şÖĞ²¿·ÖÊı¾İĞ´Èë»º´æÇø
         {
-            if(tmpStudent.GetID() != "-1")
+            if(tmpStudent.GetID() != "-1")                      //ÅĞ¶ÏÊÇ·ñ¶ÁÈ¡µ½½áÊø±êÊ¶
             {
+                int courseAmount = 0;
+                stringstream stream;
                 infile >> tmpCourseAmount;
-                tmpStudent.SetCourseAmount(tmpCourseAmount);
-                while(tmpCourseAmount--)
+                stream << tmpCourseAmount;                      //String to Int×ª»»
+                stream >> courseAmount;
+                for (int i=0;i < courseAmount; i++)             //ÅĞ¶ÏÑ§ÉúÒÑÑ¡¿Î³ÌÊıÄ¿
                 {
+                    tmpStudent.SetCourseAmount(i+1);        //
                     infile >> tmpCourseID;
                     tmpStudent.Add(courseV[courseM[tmpCourseID]], false);
                 }
-                tmpStudent.DisplayStudent();
-                studentV.push_back(tmpStudent);
-                studentM.insert(make_pair(tmpStudent.GetID(), studentV.size() - 1));
+                tmpStudent.DisplayStudent();                    //ÏÔÊ¾ÒÑ¶ÁÈëÊı¾İ
+                studentV.push_back(tmpStudent);                 //ÔØÈëµ½VectorÈİÆ÷ÖĞ
+                studentM.insert(make_pair(tmpStudent.GetID(), studentV.size() - 1));        //ÔØÈëMapÈİÆ÷ÖĞ
+                _studentTotal++;                                //¸üĞÂÑ§Éú×ÜÊı
+                SortStudent();                                  //¶Ô¿Î³ÌÈİÆ÷ÄÚ¿Î³Ì½øĞĞÅÅĞò
             }
-            else
+            else                                                //Èô¶ÁÈ¡µ½½áÊø±êÊ¶
             {
                 break;
             }
         }
-        infile.close();
-        cout << "å­¦ç”Ÿæ•°æ®åŠ è½½æˆåŠŸï¼" << endl;
-        system("pause");
-        system("cls");
+        infile.close();                                         //¹Ø±ÕÎÄ¼ş
+        cout << "Ñ§ÉúÊı¾İ¼ÓÔØ³É¹¦£¡" << endl;
+        system("pause");                              //ÊäÈëÈÎÒâ¼ü¼ÌĞø
+        system("cls");                              //ÇåÆÁ
     }
     else
     {
-        cout << "open 3118002296_student.txt error!" <<endl;
-        exit(1);
+        cout << "open 3118002296_student.txt error!" <<endl;    //ÌáÊ¾´íÎóĞÅÏ¢
     }
 }
-void Management::SortStudent()
+void Management::SortStudent()                                  //¶ÔÑ§ÉúÈİÆ÷ÄÚÑ§Éú½øĞĞÅÅĞò
 {
-    studentM.clear();                                                   //æ¸…ç©ºmapå®¹å™¨
-    sort(studentV.begin(), studentV.end(), CompStudent);               //å¯¹vectorå®¹å™¨å†…å…ƒç´ æ’åº
+    studentM.clear();                                                           //Çå¿ÕmapÈİÆ÷
+    sort(studentV.begin(), studentV.end(), CompStudent);            //¶ÔvectorÈİÆ÷ÄÚÔªËØÅÅĞò
     for(int i=0;i<_studentTotal;i++)
     {
-        studentM.insert(make_pair(studentV[i].GetID(), i));       //ä¾æ¬¡æ’å…¥mapå…ƒç´ 
+        studentM.insert(make_pair(studentV[i].GetID(), i));             //ÒÀ´Î²åÈëmapÔªËØ
     }
 }
-bool Management::CompStudent(Student &stu1, Student &stu2)
+bool Management::CompStudent(Student &stu1, Student &stu2)      //×Ô¶¨Òå±È½Ï±ê×¼
 {
-    return stu1.GetID() < stu2.GetID();
+    bool index = (stu1.GetID() < stu2.GetID());                 //½ö±È½ÏÑ§ÉúÑ§ºÅ
+    return index;
 }
-void Management::StudentAddCourse(string &courseID)
+void Management::StudentAddCourse(string &courseID)             //Ñ§ÉúÑ¡ĞŞ¿Î³Ì
 {
-    int index = FindCourse(courseID,true);
-    if (index != -1)
+    int index = FindCourse(courseID,true);          //²éÑ¯Ä¿±ê¿Î³Ì
+    if (index != -1)                                            //ÈôÕÒµ½Ä¿±ê¿Î³Ì
     {
-        studentVI->Add(courseV[courseM[courseID]],true);
+        studentVI->Add(courseV[courseM[courseID]],true);            //Ñ¡ĞŞÄ¿±ê¿Î³Ì
     }
     else
     {
-        cout << "æ­¤è¯¾ç¨‹ä»£ç è¯¾ç¨‹ä¸å­˜åœ¨ï¼" << endl;
+        cout << "´Ë¿Î³Ì´úÂë¿Î³Ì²»´æÔÚ£¡" << endl;                  //ÈôÎ´ÕÒµ½Ä¿±ê¿Î³Ì
     }
 }
-void Management::StudentDeleteCourse(string &courseID)
+void Management::StudentDeleteCourse(string &courseID)          //Ñ§ÉúÍËÑ¡¿Î³Ì
 {
-    int index = FindCourse(courseID,true);
-    if (index != -1)
+    int index = FindCourse(courseID,true);          //²éÑ¯Ä¿±ê¿Î³Ì
+    if (index != -1)                                            //ÈôÕÒµ½Ä¿±ê¿Î³Ì
     {
-        studentVI->Delete(courseID,true);
+        studentVI->Delete(courseID,true);           //ÍËÑ¡Ä¿±ê¿Î³Ì
     }
-    else
+    else                                                        //ÈôÎ´ÕÒµ½Ä¿±ê¿Î³Ì
     {
-        cout << "æ­¤è¯¾ç¨‹ä»£ç è¯¾ç¨‹ä¸å­˜åœ¨ï¼" << endl;
+        cout << "´Ë¿Î³Ì´úÂë¿Î³Ì²»´æÔÚ£¡" << endl;
     }
 }
-void Management::AddCourse()
+void Management::AddCourse()                                    //¹ÜÀíÔ±Ìí¼Ó¿Î³Ì
 {
-    system("cls");
+    system("cls");                                  //ÇåÆÁ
     while (true)
     {
         Course tmpCourse;
         cout << "\n" << endl;
-        cout << "è¯·ä¾æ¬¡è¾“å…¥å­¦å·ã€å§“åã€æ€§åˆ«ã€å¹´é¾„ã€ç³»åˆ«ã€ç­çº§ã€è”ç³»æ–¹å¼ï¼Œè¾“å…¥-1ç»“æŸ"<<endl;
+        cout << "ÇëÒÀ´ÎÊäÈë¿Î³Ì´úÂë¡¢¿Î³ÌÃû³Æ¡¢Ñ§Ê±¡¢Ñ§·Ö¡¢¿ª¿ÎÑ§ÆÚ¡¢Ñ¡ĞŞÈËÊıÉÏÏŞ£¬ÊäÈë-1½áÊø"<<endl;
         cin >> tmpCourse;
-        if(tmpCourse.GetID() != "-1")
+        if(tmpCourse.GetID() != "-1")                           //ÈôÊäÈë²»Îª"-1"
         {
-            courseMI = courseM.find(tmpCourse.GetID());
-            if (courseMI == courseM.end())
+            courseMI = courseM.find(tmpCourse.GetID());         //²éÑ¯Ä¿±ê¿Î³Ì
+            if (courseMI == courseM.end())                      //ÈôÎ´ÕÒµ½Ä¿±ê¿Î³Ì
             {
-                courseV.push_back(tmpCourse);
-                courseM.insert(make_pair(tmpCourse.GetID(), courseV.size() - 1));
-                SortCourse();
-                cout << "æˆåŠŸæ·»åŠ è¯¾ç¨‹ï¼" << endl;
+                courseV.push_back(tmpCourse);                   //¼ÓÔØµ½VectorÈİÆ÷ÖĞ
+                courseM.insert(make_pair(tmpCourse.GetID(), courseV.size() - 1));       //²åÈëµ½MapÈİÆ÷ÖĞ
+                _courseTotal++;                                 //¸üĞÂ¿Î³ÌÊıÄ¿
+                SortCourse();                                   //¶Ô¿Î³ÌÈİÆ÷ÄÚ¿Î³Ì½øĞĞÅÅĞò
+                cout << "³É¹¦Ìí¼Ó¿Î³Ì£¡" << endl;
             }
-            else
+            else                                                //ÈôÕÒµ½Ä¿±ê¿Î³Ì
             {
-                cout << "æ­¤è¯¾ç¨‹ä»£ç è¯¾ç¨‹å·²å­˜åœ¨ï¼" << endl;
+                cout << "´Ë¿Î³Ì´úÂë¿Î³ÌÒÑ´æÔÚ£¡" << endl;
             }
         }
-        else
+        else                                                    //Ìø³öwhileÑ­»·
         {
             break;
         }
-        system("pause");
+        system("pause");                            //ÊäÈëÈÎÒâ¼ü¼ÌĞø
     }
 }
-void Management::DeleteCourse()
+void Management::DeleteCourse()                                 //¹ÜÀíÔ±É¾³ı¿Î³Ì
 {
     string courseID;
-    system("cls");
+    system("cls");                                  //ÇåÆÁ
     while(true)
     {
         cout << "\n" << endl;
-        cout << "è¾“å…¥è¦åˆ é™¤çš„è¯¾ç¨‹çš„è¯¾ç¨‹ä»£ç ,è¾“å…¥-1ç»“æŸ" << endl;
+        cout << "ÊäÈëÒªÉ¾³ıµÄ¿Î³ÌµÄ¿Î³Ì´úÂë,ÊäÈë-1½áÊø" << endl;
         cin >> courseID;
-        if(courseID != "-1")
+        if(courseID != "-1")                                    //ÈôÊäÈë²»Îª"-1"
         {
-            courseMI = courseM.find(courseID);
-            if (courseMI != courseM.end())
+            courseMI = courseM.find(courseID);                  //²éÑ¯Ä¿±ê¿Î³Ì
+            if (courseMI != courseM.end())                      //ÈôÕÒµ½Ä¿±ê¿Î³Ì
             {
-                courseV.erase(courseV.begin() + courseM[courseID]);          //åˆ é™¤vectorä¸­å…ƒç´ 
-                courseM.erase(studentMI);                                      //åˆ é™¤mapä¸­å…ƒç´ 
-                SortCourse();                                                                 //å®¹å™¨æ’åº
-                _courseTotal = courseV.size();                                        //æ›´æ–°é€‰è¯¾æ•°ç›®
-                cout << "æˆåŠŸåˆ é™¤è¯¾ç¨‹ï¼" << endl;
+                for (int i = courseV[courseM[courseID]].GetStudentAmount(); i > 0; i--)     //±éÀúËùÓĞÒÑÑ¡¸Ã¿ÎÑ§Éú
+                {
+                    courseV[courseM[courseID]].Delete(courseV[courseM[courseID]].studentDV[i]._studentID);  //»Øµ÷º¯ÊıÁîÒÑÑ¡¸Ã¿ÎÑ§ÉúÍËÑ¡¸Ã¿Î
+                }
+                courseV.erase(courseV.begin() + courseM[courseID]);                 //É¾³ıvectorÖĞÔªËØ
+                courseM.erase(studentMI);               //É¾³ımapÖĞÔªËØ
+                SortCourse();                                   //ÈİÆ÷ÅÅĞò
+                _courseTotal = courseV.size();                  //¸üĞÂ¿Î³ÌÊıÄ¿
+                cout << "³É¹¦É¾³ı¿Î³Ì£¡" << endl;
             }
-            else
+            else                                                //ÈôÎ´ÕÒµ½Ä¿±ê¿Î³Ì
             {
-                cout << "è®°å½•ä¸ºç©ºï¼" << endl;
+                cout << "¼ÇÂ¼Îª¿Õ£¡" << endl;
             }
         }
-        else
+        else                                                    //Ìø³öwhileÑ­»·
         {
             break;
         }
     }
-    system("pause");
+    system("pause");                                //ÊäÈëÈÎÒâ¼ü¼ÌĞø
 }
-void Management::EditCourse()
+void Management::EditCourse()                                   //¹ÜÀíÔ±±à¼­¿Î³Ì
 {
     string courseID;
-    system("cls");
+    Course tmpCourse;
+    system("cls");                                      //ÇåÆÁ
     while(true)
     {
         cout << "\n" << endl;
-        cout << "è¾“å…¥è¦ä¿®æ”¹çš„è¯¾ç¨‹çš„è¯¾ç¨‹ä»£ç ,è¾“å…¥-1ç»“æŸ" << endl;
+        cout << "ÊäÈëÒªĞŞ¸ÄµÄ¿Î³ÌµÄ¿Î³Ì´úÂë,ÊäÈë-1½áÊø" << endl;
         cin >> courseID;
-        if(courseID != "-1")
+        if(courseID != "-1")                                    //ÈôÊäÈë²»Îª"-1"
         {
-            courseMI = courseM.find(courseID);
-            if (courseMI == courseM.end())
+            courseMI = courseM.find(courseID);                  //²éÑ¯Ä¿±ê¿Î³Ì
+            if (courseMI != courseM.end())                      //ÈôÕÒµ½Ä¿±ê¿Î³Ì
             {
                 cout << "\n" << endl;
-                cout << "ä¿®æ”¹å‰çš„ä¿¡æ¯ï¼š" << endl;
+                cout << "ĞŞ¸ÄÇ°µÄĞÅÏ¢£º" << endl;
                 cout << "*******************************************************************************************************"
                         "****************"  << endl;
-                cout << courseV[courseM[courseID]] << endl;
-                cin >> courseV[courseM[courseID]];
-                cout << "\n" << endl;
-                cout << "ä¿®æ”¹åçš„ä¿¡æ¯ï¼š" << endl;
-                cout << "*******************************************************************************************************"
-                        "****************"  << endl;
-                cout << courseV[courseM[courseID]] << endl;
-                SortCourse();
-            } else {
-                cout << "è®°å½•ä¸ºç©ºï¼" << endl;
+                cout << courseV[courseM[courseID]] << endl;     //ÏÔÊ¾ĞŞ¸ÄÇ°ĞÅÏ¢
+                ShowEditCoursePrompt();
+                cin >> tmpCourse;
+                if (FindCourse(tmpCourse.GetID(),true) == -1)   //²éÑ¯ÊÇ·ñ´æÔÚÏàÍ¬¿Î³Ì´úÂë¿Î³Ì
+                {
+                    courseV[courseM[courseID]] = tmpCourse;     //ÈôÕÒµ½ÏàÍ¬¿Î³Ì´úÂë¿Î³Ì
+                    cout << "\n" << endl;
+                    cout << "ĞŞ¸ÄºóµÄĞÅÏ¢£º" << endl;
+                    cout << "*******************************************************************************************************"
+                            "****************"  << endl;
+                    cout << courseV[courseM[courseID]] << endl; //ÏÔÊ¾ĞŞ¸ÄºóĞÅÏ¢
+                    SortCourse();                               //¶Ô¿Î³ÌÈİÆ÷ÄÚ¿Î³Ì½øĞĞÅÅĞò
+                    cout << "³É¹¦ĞŞ¸Ä¿Î³Ì£¡" << endl;
+                }
+                else                                            //ÈôÕÒµ½ÏàÍ¬¿Î³Ì´úÂë¿Î³Ì
+                {
+                    cout << "´Ë¿Î³Ì´úÂë¿Î³ÌÒÑ´æÔÚ£¡" << endl;
+                }
+            }
+            else                                                //ÈôÎ´ÕÒµ½Ä¿±ê¿Î³Ì
+            {
+                cout << "¼ÇÂ¼Îª¿Õ£¡" << endl;
             }
         }
-        else
+        else                                                    //Ìø³öwhileÑ­»·
         {
             break;
         }
-        system("pause");
+        system("pause");                                //ÊäÈëÈÎÒâ¼ü¼ÌĞø
     }
 }
-int Management::FindCourse(string &courseData, int mode)
+int Management::FindCourse(string &courseData, int mode)        //¹ÜÀíÔ±²éÑ¯¿Î³Ì
 {
-    if (mode)                                           //æ¨¡å¼ä¸€ï¼šæŸ¥è¯¢è¯¾ç¨‹ä»£ç 
+    if (mode)                                                   //Ä£Ê½Ò»£º²éÑ¯¿Î³Ì´úÂë
     {
-        for(int i = 0;i < _courseTotal;i++)
+        for(int i = 0;i < _courseTotal;i++)                     //±éÀúCourseÀàµÄVectorÈİÆ÷
         {
             if(courseV[i].GetID() == courseData)
             {
-                return i;
+                return i;                                       //·µ»ØÄ¿±ê¿Î³ÌµÄÏÂ±ê
             }
         }
     }
-    else                                                //æ¨¡å¼äºŒï¼šæŸ¥è¯¢è¯¾ç¨‹å
+    else                                                        //Ä£Ê½¶ş£º²éÑ¯¿Î³ÌÃû
     {
-        for(int i=0;i<_courseTotal;i++)
+        for(int i=0;i<_courseTotal;i++)                         //±éÀúCourseÀàµÄVectorÈİÆ÷
         {
             if(courseV[i].GetName() == courseData)
             {
-                return i;
+                return i;                                       //·µ»ØÄ¿±ê¿Î³ÌµÄÏÂ±ê
             }
         }
     }
-    return -1;
+    return -1;                                                  //²éÑ¯Ê§°Ü£¬·µ»Ø-1
 }
-int& Management::TotalCourse()
+int& Management::TotalCourse()                                  //»ñÈ¡¿Î³Ì×ÜÊı
 {
-    system("cls");
-    ShowTotalCoursePrompt();
-    cout << _courseTotal << endl;
-    system("pause");
-    return _courseTotal;
+    system("cls");                                  //ÇåÆÁ
+    ShowTotalCoursePrompt();                                    //ÏÔÊ¾¿Î³Ì×ÜÊıÌáÊ¾
+    cout << _courseTotal << endl;                               //ÏÔÊ¾¿Î³Ì×ÜÊı
+    system("pause");                                  //ÊäÈëÈÎÒâ¼ü¼ÌĞø
+    return _courseTotal;                                         //·µ»Ø¿Î³Ì×ÜÊı
 }
-void Management::PrintCourse()
+void Management::PrintCourse()                                  //ÏÔÊ¾ËùÓĞ¿Î³ÌĞÅÏ¢
 {
-    system("cls");
-    ShowCourseDataHeader();
-    for (int i=0;i<_courseTotal;i++)
+    system("cls");                                      //ÇåÆÁ
+    ShowCourseDataHeader();                                     //ÏÔÊ¾¿Î³ÌÁĞ±í±íÍ·
+    for (int i=0;i<_courseTotal;i++)                            //ÒÀ´ÎÏÔÊ¾¿Î³ÌĞÅÏ¢
     {
         cout << courseV[i] << endl;
     }
-    system("pause");
 }
-void Management::SaveCourse()
+void Management::SaveCourse()                                   //±£´æ¿Î³ÌÊı¾İ
 {
-    ofstream outfile("3118002296_course.txt",ios::out|ios::trunc);
-    if(outfile)
+    ofstream outfile("F:\\Data\\Program\\CPP\\SystemDesign\\3118002296_course.txt",ios::out|ios::trunc);    //¸²¸ÇĞ´Èë·½Ê½´ò¿ªÎÄ¼ş
+    if(outfile)                                                 //Èô³É¹¦´ò¿ª
     {
-        for(int i = 0;i < _courseTotal;i++)
+        for(int i = 0;i < _courseTotal;i++)                     //ÒÀ´Îµ¼Èë¿Î³ÌĞÅÏ¢
         {
             outfile << courseV[i].GetID() << "\t" << courseV[i].GetName() << "\t" << courseV[i].GetPeriod() << "\t";
             outfile << courseV[i].GetCredit() << "\t" << courseV[i].GetSemester() << courseV[i].GetMaximum() << endl;
         }
-        outfile << "-1" << endl;
-        outfile.close();
-        cout << "è¯¾ç¨‹æ•°æ®ä¿å­˜æˆåŠŸï¼" << endl;
-        system("pause");
-        system("cls");
+        outfile << "-1" << endl;                                    //ÊäÈë½áÊø±êÊ¶
+        outfile.close();                                            //¹Ø±ÕÎÄ¼ş
+        cout << "¿Î³ÌÊı¾İ±£´æ³É¹¦£¡" << endl;
+        system("pause");                                //ÊäÈëÈÎÒâ¼ü¼ÌĞø
+        system("cls");                                  //ÇåÆÁ
     }
     else
     {
-        cout << "open 3118002296_course.txt error!" <<endl;
-        exit(1);
+        cout << "open 3118002296_course.txt error!" <<endl;         //ÌáÊ¾´íÎóĞÅÏ¢
     }
 }
-void Management::LoadCourse()
+void Management::LoadCourse()                                       //¼ÓÔØ¿Î³ÌÊı¾İ
 {
     Course tmpCourse;
-    ifstream infile("3118002296_course.txt",ios::in);
-    if(infile)
+    ifstream infile("F:\\Data\\Program\\CPP\\SystemDesign\\3118002296_course.txt",ios::in);                 //Ö»¶Á·½Ê½´ò¿ªÎÄ¼ş
+    if(infile)                                                      //Èô³É¹¦´ò¿ª
     {
-        system("cls");
-        courseV.clear();
-        cout << "\t" << setw(10) << "è¯¾ç¨‹ä»£ç " << "\t" << setw(12) << "è¯¾ç¨‹åç§°" << "\t" << setw(4) << "å­¦æ—¶";
-        cout << "\t" << setw(4) << "å­¦åˆ†" << "\t" << setw(8) << "å¼€è¯¾å­¦æœŸ";
-        cout << "\t" << setw(8) << "äººæ•°ä¸Šé™" << "\\" << setw(8) << "é€‰ä¿®äººæ•°" << endl;
-        while (infile >> tmpCourse) {
-            if (tmpCourse.GetID() != "-1") {
-                tmpCourse.DisplayStudent();
-                courseV.push_back(tmpCourse);
-                courseM.insert(make_pair(tmpCourse.GetID(), courseV.size() - 1));
+        system("cls");                                      //ÇåÆÁ
+        courseV.clear();                                            //Çå¿ÕVectorÈİÆ÷
+        cout << "\t" << setw(10) << "¿Î³Ì´úÂë" << "\t" << setw(20) << "¿Î³ÌÃû³Æ" << "\t" << setw(4) << "Ñ§Ê±";
+        cout << "\t" << setw(4) << "Ñ§·Ö" << "\t" << setw(8) << "¿ª¿ÎÑ§ÆÚ";
+        cout << "\t" << setw(8) << "ÈËÊıÉÏÏŞ" << endl;              //ÏÔÊ¾¿Î³ÌÊı¾İ±íÍ·
+        while (infile >> tmpCourse)                                 //½«ÎÄ¼şÖĞ²¿·ÖÊı¾İĞ´Èë»º´æÇø
+        {
+            if (tmpCourse.GetID() != "-1")                              //ÅĞ¶ÏÊÇ·ñ¶ÁÈ¡µ½½áÊø±êÊ¶
+            {
+                tmpCourse.DisplayCourse();                          //ÏÔÊ¾ÒÑ¶ÁÈëÊı¾İ
+                courseV.push_back(tmpCourse);                       //ÔØÈëµ½VectorÈİÆ÷ÖĞ
+                courseM.insert(make_pair(tmpCourse.GetID(), courseV.size() - 1));               //ÔØÈëMapÈİÆ÷ÖĞ
+                _courseTotal++;                                     //¸üĞÂ¿Î³Ì×ÜÊı
+                SortCourse();                                       //¶Ô¿Î³ÌÈİÆ÷ÄÚ¿Î³Ì½øĞĞÅÅĞò
             }
-            else
+            else                                                    //Èô¶ÁÈ¡µ½½áÊø±êÊ¶
             {
                 break;
             }
         }
-        infile.close();
+        infile.close();                                             //¹Ø±ÕÎÄ¼ş
         cout << "\n" << endl;
-        cout << "è¯¾ç¨‹æ•°æ®åŠ è½½æˆåŠŸï¼" << endl;
-        system("pause");
-        system("cls");
+        cout << "¿Î³ÌÊı¾İ¼ÓÔØ³É¹¦£¡" << endl;
+        system("pause");                                    //ÊäÈëÈÎÒâ¼ü¼ÌĞø
+        system("cls");                                  //ÇåÆÁ
     }
     else
     {
-        cout << "open 3118002296_course.txt error!" <<endl;
-        exit(1);
+        cout << "3118002296_course.txt ÎŞ·¨´ò¿ª!" <<endl;           //ÌáÊ¾´íÎóĞÅÏ¢
     }
 }
-void Management::SortCourse()
+void Management::SortCourse()                                           //¶Ô¿Î³ÌÈİÆ÷ÄÚ¿Î³Ì½øĞĞÅÅĞò
 {
-    courseM.clear();                                                   //æ¸…ç©ºmapå®¹å™¨
-    sort(courseV.begin(), courseV.end(), CompCourse);               //å¯¹vectorå®¹å™¨å†…å…ƒç´ æ’åº
+    courseM.clear();                                                   //Çå¿ÕmapÈİÆ÷
+    sort(courseV.begin(), courseV.end(), CompCourse);               //¶ÔvectorÈİÆ÷ÄÚÔªËØÅÅĞò
     for(int i=0;i<_courseTotal;i++)
     {
-        courseM.insert(make_pair(courseV[i].GetID(), i));       //ä¾æ¬¡æ’å…¥mapå…ƒç´ 
+        courseM.insert(make_pair(courseV[i].GetID(), i));       //ÒÀ´Î²åÈëmapÔªËØ
     }
 }
-bool Management::CompCourse(Course &cour1, Course &cour2)
+bool Management::CompCourse(Course &cour1, Course &cour2)               //×Ô¶¨Òå±È½Ï±ê×¼
 {
-    return cour1.GetID() < cour2.GetID();
+    bool index = (cour1.GetID() < cour2.GetID());                       //½ö±È½Ï¿Î³Ì´úÂë
+    return index;
 }

@@ -12,14 +12,12 @@ class Course;
 
 struct CourseData
 {
-    Course *pc;                             //courseæŒ‡é’ˆ
-    string _courseID;                       //è¯¾ç¨‹ä»£ç 
-    string _courseName;                     //è¯¾ç¨‹åç§°
-    string _coursePeriod;                   //æ€»å­¦æ—¶
-    string _courseCredit;                   //å­¦åˆ†
-    string _courseSemester;                 //å¼€è¯¾å­¦æœŸ
+    string _courseID;                       //¿Î³Ì´úÂë
+    string _courseName;                     //¿Î³ÌÃû³Æ
+    string _coursePeriod;                   //×ÜÑ§Ê±
+    string _courseCredit;                   //Ñ§·Ö
+    string _courseSemester;                 //¿ª¿ÎÑ§ÆÚ
     friend ostream&operator<<(ostream &os,CourseData &cour);
-    friend istream&operator>>(istream &is,CourseData &cour);
 };
 
 #endif //SYSTEMDESIGN_COURSEDATA_STRUCT_H

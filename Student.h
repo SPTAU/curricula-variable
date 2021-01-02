@@ -13,52 +13,55 @@
 using namespace std;
 
 class Course;
+class Management;
 
 class Student
 {
-    vector<CourseData> courseDV;
-    map<string,int> courseDM;
-    map<string,int>::iterator courseDMI;
 public:
     Student();
     Student(string &id, string &name, string &gender, string &age, string &department,
             string &classes, string &phoneNumber, int courseAmount = 0);
+    Student(Student& stu);
     ~Student();
 private:
-    string _id;                 //å­¦å·
-    string _name;               //å§“å
-    string _gender;             //æ€§åˆ«
-    string _age;                //å¹´é¾„
-    string _department;         //ç³»åˆ«
-    string _class;              //ç­çº§
-    string _phoneNumber;        //è”ç³»æ–¹å¼
-    int _courseAmount;          //é€‰æ‹©è¯¾ç¨‹æ•°ç›®
+    string _id;                 //Ñ§ºÅ
+    string _name;               //ĞÕÃû
+    string _gender;             //ĞÔ±ğ
+    string _age;                //ÄêÁä
+    string _department;         //Ïµ±ğ
+    string _class;              //°à¼¶
+    string _phoneNumber;        //ÁªÏµ·½Ê½
+    int _courseAmount;          //Ñ¡Ôñ¿Î³ÌÊıÄ¿
 public:
-    void SetID(string &id);                         //è®¾ç½®å­¦å·
-    void SetName(string &name);                     //è®¾ç½®å§“å
-    void SetGender(string &gender);                 //è®¾ç½®æ€§åˆ«
-    void SetAge(string &age);                       //è®¾ç½®å¹´é¾„
-    void SetDepartment(string &department);         //è®¾ç½®ç³»åˆ«
-    void SetClass(string &classes);                 //è®¾ç½®ç­çº§
-    void SetPhoneNumber(string &phoneNumber);       //è®¾ç½®è”ç³»æ–¹å¼
-    void SetCourseAmount(int &courseAmount);        //è®¾ç½®é€‰è¯¾æ•°ç›®
-    string &GetID();            //è·å–å­¦å·
-    string &GetName();          //è·å–å§“å
-    string &GetGender();        //è·å–æ€§åˆ«
-    string &GetAge();           //è·å–å¹´é¾„
-    string &GetDepartment();    //è·å–ç³»åˆ«
-    string &GetClass();         //è·å–ç­çº§
-    string &GetPhoneNumber();   //è·å–è”ç³»æ–¹å¼
-    int &GetCourseAmount();     //è·å–é€‰è¯¾æ•°ç›®
-    string &GetCourseID(int &index);                //è·å–è¯¾ç¨‹ä»£ç 
-    void Add(Course &cour, bool mode);              //æ·»åŠ è¯¾ç¨‹
-    void Delete(string &courseID,bool mode);        //åˆ é™¤è¯¾ç¨‹
-    void DisplayStudent();                          //æ˜¾ç¤ºå­¦ç”Ÿä¿¡æ¯
-    void DisplayCourse();                           //æ˜¾ç¤ºé€‰è¯¾ä¿¡æ¯
-    void Sort();                                    //å¯¹æ‰€é€‰è¯¾ç¨‹è¿›è¡Œæ’åº
-    static bool comp(CourseData &cour1, CourseData &cour2);                 //è‡ªå®šä¹‰æ¯”è¾ƒæ ‡å‡†
-    friend ostream&operator<<(ostream &os, Student &stu);                   //é‡è½½Studentè¾“å‡ºæµ
-    friend istream&operator>>(istream &is, Student &stu);                   //é‡è½½Studentè¾“å…¥æµ
+    vector<CourseData> courseDV;                    //CourseDataµÄVectorÈİÆ÷
+    map<string,int> courseDM;                       //CourseDataµÄMapÈİÆ÷
+    map<string,int>::iterator courseDMI;            //CourseDataµÄMapÈİÆ÷µÄµü´úÆ÷
+    void SetID(string &id);                         //ÉèÖÃÑ§ºÅ
+    void SetName(string &name);                     //ÉèÖÃĞÕÃû
+    void SetGender(string &gender);                 //ÉèÖÃĞÔ±ğ
+    void SetAge(string &age);                       //ÉèÖÃÄêÁä
+    void SetDepartment(string &department);         //ÉèÖÃÏµ±ğ
+    void SetClass(string &classes);                 //ÉèÖÃ°à¼¶
+    void SetPhoneNumber(string &phoneNumber);       //ÉèÖÃÁªÏµ·½Ê½
+    void SetCourseAmount(int courseAmount);         //ÉèÖÃÑ¡¿ÎÊıÄ¿
+    string &GetID();            //»ñÈ¡Ñ§ºÅ
+    string &GetName();          //»ñÈ¡ĞÕÃû
+    string &GetGender();        //»ñÈ¡ĞÔ±ğ
+    string &GetAge();           //»ñÈ¡ÄêÁä
+    string &GetDepartment();    //»ñÈ¡Ïµ±ğ
+    string &GetClass();         //»ñÈ¡°à¼¶
+    string &GetPhoneNumber();   //»ñÈ¡ÁªÏµ·½Ê½
+    int &GetCourseAmount();     //»ñÈ¡Ñ¡¿ÎÊıÄ¿
+    string &GetCourseID(int &index);                //»ñÈ¡¿Î³Ì´úÂë
+    void Add(Course &cour, bool mode);               //Ìí¼Ó¿Î³Ì
+    void Delete(string &courseID,bool mode);        //É¾³ı¿Î³Ì
+    void DisplayStudent();                          //ÏÔÊ¾Ñ§ÉúĞÅÏ¢
+    void DisplayCourse();                           //ÏÔÊ¾Ñ¡¿ÎĞÅÏ¢
+    void Sort();                                    //¶ÔËùÑ¡¿Î³Ì½øĞĞÅÅĞò
+    static bool comp(CourseData &cour1, CourseData &cour2);                 //×Ô¶¨Òå±È½Ï±ê×¼
+    Student &operator= (const Student &stu);                                 //ÖØÔØ¸³ÖµÔËËã·û
+    friend ostream&operator<<(ostream &os, Student &stu);                   //ÖØÔØStudentÊä³öÁ÷
+    friend istream&operator>>(istream &is, Student &stu);                   //ÖØÔØStudentÊäÈëÁ÷
 };
 
 #endif //SYSTEMDESIGN_STUDENT_H

@@ -7,219 +7,265 @@
 #include "Show.h"
 using namespace std;
 
-void ShowMainMenu()
+void ShowMainMenu()                                     //Ö÷²Ëµ¥
 {
     cout << "\n" << endl;
-    cout << "\t\t\t\t" << "            æ¬¢è¿è¿›å…¥å­¦ç”Ÿé€‰ä¿®è¯¾ç¨‹ç³»ç»Ÿ             " << endl;
+    cout << "\t\t\t\t" << "            »¶Ó­½øÈëÑ§ÉúÑ¡ĞŞ¿Î³ÌÏµÍ³             " << endl;
     cout << "\t\t\t\t" << "*********************************************" << endl;
     cout << "\n" << endl;
-    cout << "\t\t\t\t" << "                 1.  å­¦ç”Ÿèº«ä»½ç™»å½•              " << endl;
-    cout << "\t\t\t\t" << "                 2.  ç®¡ç†å‘˜èº«ä»½ç™»å½•             " << endl;
-    cout << "\t\t\t\t" << "                 3.  ä¿å­˜æ•°æ®                " << endl;
-    cout << "\t\t\t\t" << "                 4.  åŠ è½½æ•°æ®                " << endl;
-    cout << "\t\t\t\t" << "                 5.  é€€å‡º                  " << endl;
+    cout << "\t\t\t\t" << "                 1.  Ñ§ÉúÉí·İµÇÂ¼              " << endl;
+    cout << "\t\t\t\t" << "                 2.  ¹ÜÀíÔ±Éí·İµÇÂ¼             " << endl;
+    cout << "\t\t\t\t" << "                 3.  ±£´æÊı¾İ                " << endl;
+    cout << "\t\t\t\t" << "                 4.  ¼ÓÔØÊı¾İ                " << endl;
+    cout << "\t\t\t\t" << "                 5.  ÍË³ö                  " << endl;
     cout << "\n" << endl;
     cout << "\t\t\t\t" << "*********************************************" << endl;
-    cout << "\n è¯·è¾“å…¥æ“ä½œå¯¹åº”åºå·ï¼š ";
+    cout << "\n ÇëÊäÈë²Ù×÷¶ÔÓ¦ĞòºÅ£º ";
 }
-void ShowStudentLogInID()
+void ShowStudentLogInID()                               //Ñ§ÉúÉí·İµÇÂ¼Ñ§ºÅÑéÖ¤
 {
-    cout << "è¯·è¾“å…¥æ‚¨çš„å­¦å· (è¾“å…¥-1é€€å‡º)ï¼š ";
+    cout << "ÇëÊäÈëÄúµÄÑ§ºÅ (ÊäÈë-1ÍË³ö)£º ";
 }
-void ShowStudentLogInName()
+void ShowStudentLogInName()                             //Ñ§ÉúÉí·İµÇÂ¼ĞÕÃûÑéÖ¤
 {
-    cout << "è¯·è¾“å…¥æ‚¨çš„å§“å (è¾“å…¥-1é€€å‡º)ï¼š ";
+    cout << "ÇëÊäÈëÄúµÄĞÕÃû (ÊäÈë-1ÍË³ö)£º ";
 }
-void ShowManagementLogIn()
+void ShowManagementLogIn()                              //¹ÜÀíÔ±Éí·İµÇÂ¼ÃÜÂëÑéÖ¤
 {
-    cout << "è¯·è¾“å…¥å¯†ç  (è¾“å…¥-1é€€å‡º)ï¼š ";
+    cout << "ÇëÊäÈëÃÜÂë (ÊäÈë-1ÍË³ö)£º ";
 }
-void ShowStudentMenu()
+void ShowStudentMenu()                                  //Ñ§Éú²Ù×÷²Ëµ¥
 {
     cout << "\n" << endl;
-    cout << "\t\t\t\t" << "                 å­¦ç”Ÿæ“ä½œèœå•              " << endl;
+    cout << "\t\t\t\t" << "                 Ñ§Éú²Ù×÷²Ëµ¥              " << endl;
     cout << "\t\t\t\t" << "********************************************" << endl;
     cout << "\n" << endl;
-    cout << "\t\t\t\t" << "                 1. é€‰è¯¾                   " << endl;
-    cout << "\t\t\t\t" << "                 2. é€€è¯¾                   " << endl;
-    cout << "\t\t\t\t" << "                 3. ä¸ªäººä¿¡æ¯                 " << endl;
-    cout << "\t\t\t\t" << "                 4. è¿”å›ä¸Šä¸€å±‚                " << endl;
+    cout << "\t\t\t\t" << "                 1. Ñ¡¿Î                   " << endl;
+    cout << "\t\t\t\t" << "                 2. ÍË¿Î                   " << endl;
+    cout << "\t\t\t\t" << "                 3. ¸öÈËĞÅÏ¢                 " << endl;
+    cout << "\t\t\t\t" << "                 4. ·µ»ØÉÏÒ»²ã                " << endl;
     cout << "\n" << endl;
     cout << "\t\t\t\t" << "********************************************" << endl;
-    cout << "\n è¯·è¾“å…¥æ“ä½œå¯¹åº”åºå·ï¼š ";
+    cout << "\n ÇëÊäÈë²Ù×÷¶ÔÓ¦ĞòºÅ£º ";
 }
-void ShowStudentAddCourseMenu()
+void ShowStudentAddCourseMenu()                         //Ñ¡¿Î²Ëµ¥
 {
     cout << "\n" << endl;
-    cout << "\t\t\t\t" << "                 å­¦ç”Ÿé€‰è¯¾èœå•              " << endl;
+    cout << "\t\t\t\t" << "                 Ñ§ÉúÑ¡¿Î²Ëµ¥              " << endl;
     cout << "\t\t\t\t" << "********************************************" << endl;
     cout << "\n" << endl;
-    cout << "\t\t\t\t" << "             1. æ˜¾ç¤ºå…¨éƒ¨è¯¾ç¨‹               " << endl;
-    cout << "\t\t\t\t" << "             2. æŒ‰è¯¾ç¨‹ä»£ç æŸ¥è¯¢é€‰ä¿®è¯¾             " << endl;
-    cout << "\t\t\t\t" << "             3. æŒ‰è¯¾ç¨‹åç§°æŸ¥è¯¢é€‰ä¿®è¯¾             " << endl;
-    cout << "\t\t\t\t" << "             4. è¿”å›ä¸Šä¸€å±‚                    " << endl;
+    cout << "\t\t\t\t" << "             1. ÏÔÊ¾È«²¿¿Î³Ì               " << endl;
+    cout << "\t\t\t\t" << "             2. °´¿Î³Ì´úÂë²éÑ¯Ñ¡ĞŞ¿Î             " << endl;
+    cout << "\t\t\t\t" << "             3. °´¿Î³ÌÃû³Æ²éÑ¯Ñ¡ĞŞ¿Î             " << endl;
+    cout << "\t\t\t\t" << "             4. ·µ»ØÉÏÒ»²ã                    " << endl;
     cout << "\n" << endl;
     cout << "\t\t\t\t" << "********************************************" << endl;
-    cout << "\t\t\t\t" << "\n è¯·è¾“å…¥æ“ä½œå¯¹åº”åºå·ï¼š ";
+    cout << "\t\t\t\t" << "\n ÇëÊäÈë²Ù×÷¶ÔÓ¦ĞòºÅ£º ";
 }
-void ShowManagementMenu()
+void ShowManagementMenu()                               //¹ÜÀíÔ±²Ù×÷²Ëµ¥
 {
     cout << "\n" << endl;
-    cout << "\t\t\t\t" << "                 ç®¡ç†æ“ä½œèœå•              " << endl;
+    cout << "\t\t\t\t" << "                 ¹ÜÀí²Ù×÷²Ëµ¥              " << endl;
     cout << "\t\t\t\t" << "********************************************" << endl;
     cout << "\n" << endl;
-    cout << "\t\t\t\t" << "                 è¯·é€‰æ‹©ç®¡ç†å¯¹è±¡               " << endl;
-    cout << "\t\t\t\t" << "                 1. å­¦ç”Ÿ                   " << endl;
-    cout << "\t\t\t\t" << "                 2. è¯¾ç¨‹                   " << endl;
-    cout << "\t\t\t\t" << "                 3. è¿”å›ä¸Šä¸€å±‚                " << endl;
+    cout << "\t\t\t\t" << "                 ÇëÑ¡Ôñ¹ÜÀí¶ÔÏó               " << endl;
+    cout << "\t\t\t\t" << "                 1. Ñ§Éú                   " << endl;
+    cout << "\t\t\t\t" << "                 2. ¿Î³Ì                   " << endl;
+    cout << "\t\t\t\t" << "                 3. ·µ»ØÉÏÒ»²ã                " << endl;
     cout << "\n" << endl;
     cout << "\t\t\t\t" << "********************************************" << endl;
-    cout << "\n è¯·è¾“å…¥æ“ä½œå¯¹åº”åºå·ï¼š ";
+    cout << "\n ÇëÊäÈë²Ù×÷¶ÔÓ¦ĞòºÅ£º ";
 }
-void ShowManagementStudentMenu()
+void ShowManagementStudentMenu()                        //¹ÜÀíÑ§Éú²Ëµ¥
 {
     cout << "\n" << endl;
-    cout << "\t\t\t\t" << "                 ç®¡ç†å­¦ç”Ÿèœå•              " << endl;
+    cout << "\t\t\t\t" << "                 ¹ÜÀíÑ§Éú²Ëµ¥              " << endl;
     cout << "\t\t\t\t" << "********************************************" << endl;
     cout << "\n" << endl;
-    cout << "\t\t\t\t" << "                 1. æ·»åŠ å­¦ç”Ÿ                   " << endl;
-    cout << "\t\t\t\t" << "                 2. åˆ é™¤å­¦ç”Ÿ                   " << endl;
-    cout << "\t\t\t\t" << "                 3. ç¼–è¾‘å­¦ç”Ÿ                 " << endl;
-    cout << "\t\t\t\t" << "                 4. æŸ¥è¯¢å­¦ç”Ÿ                 " << endl;
-    cout << "\t\t\t\t" << "                 5. æ˜¾ç¤ºå­¦ç”Ÿ                 " << endl;
-    cout << "\t\t\t\t" << "                 6. ç»Ÿè®¡å­¦ç”Ÿ                 " << endl;
-    cout << "\t\t\t\t" << "                 7. è¿”å›ä¸Šä¸€å±‚                " << endl;
+    cout << "\t\t\t\t" << "                 1. Ìí¼ÓÑ§Éú                   " << endl;
+    cout << "\t\t\t\t" << "                 2. É¾³ıÑ§Éú                   " << endl;
+    cout << "\t\t\t\t" << "                 3. ±à¼­Ñ§Éú                 " << endl;
+    cout << "\t\t\t\t" << "                 4. ²éÑ¯Ñ§Éú                 " << endl;
+    cout << "\t\t\t\t" << "                 5. ÏÔÊ¾Ñ§Éú                 " << endl;
+    cout << "\t\t\t\t" << "                 6. Í³¼ÆÑ§Éú                 " << endl;
+    cout << "\t\t\t\t" << "                 7. ·µ»ØÉÏÒ»²ã                " << endl;
     cout << "\n" << endl;
     cout << "\t\t\t\t" << "********************************************" << endl;
-    cout << "\n è¯·è¾“å…¥æ“ä½œå¯¹åº”åºå·ï¼š ";
+    cout << "\n ÇëÊäÈë²Ù×÷¶ÔÓ¦ĞòºÅ£º ";
 }
-void ShowManagementCourseMenu()
+void ShowFindStudentMenu()                              //²éÑ¯Ñ§Éú²Ù×÷²Ëµ¥
 {
     cout << "\n" << endl;
-    cout << "\t\t\t\t" << "                 ç®¡ç†è¯¾ç¨‹èœå•              " << endl;
+    cout << "\t\t\t\t" << "                 ²éÑ¯²Ù×÷²Ëµ¥              " << endl;
     cout << "\t\t\t\t" << "********************************************" << endl;
     cout << "\n" << endl;
-    cout << "\t\t\t\t" << "                 1. æ·»åŠ è¯¾ç¨‹                   " << endl;
-    cout << "\t\t\t\t" << "                 2. åˆ é™¤è¯¾ç¨‹                   " << endl;
-    cout << "\t\t\t\t" << "                 3. ç¼–è¾‘è¯¾ç¨‹                 " << endl;
-    cout << "\t\t\t\t" << "                 4. æŸ¥è¯¢è¯¾ç¨‹                 " << endl;
-    cout << "\t\t\t\t" << "                 5. æ˜¾ç¤ºè¯¾ç¨‹                 " << endl;
-    cout << "\t\t\t\t" << "                 6. ç»Ÿè®¡è¯¾ç¨‹                 " << endl;
-    cout << "\t\t\t\t" << "                 7. è¿”å›ä¸Šä¸€å±‚                " << endl;
+    cout << "\t\t\t\t" << "                 ÇëÑ¡Ôñ²éÑ¯Ä£Ê½               " << endl;
+    cout << "\t\t\t\t" << "                 1. Ñ§ÉúÑ§ºÅ                   " << endl;
+    cout << "\t\t\t\t" << "                 2. Ñ§ÉúĞÕÃû                   " << endl;
+    cout << "\t\t\t\t" << "                 3. ·µ»ØÉÏÒ»²ã                " << endl;
     cout << "\n" << endl;
     cout << "\t\t\t\t" << "********************************************" << endl;
-    cout << "\n è¯·è¾“å…¥æ“ä½œå¯¹åº”åºå·ï¼š ";
+    cout << "\n ÇëÊäÈë²Ù×÷¶ÔÓ¦ĞòºÅ£º ";
 }
-void ShowCourseDataHeader()
-{
-    cout << "\t" << setw(10) << "è¯¾ç¨‹ä»£ç " << "\t" << setw(12) << "è¯¾ç¨‹åç§°" << "\t" << setw(4) << "å­¦æ—¶";
-    cout << "\t" << setw(4) << "å­¦åˆ†" << "\t" << setw(8) << "å¼€è¯¾å­¦æœŸ";
-    cout << "\t" << setw(8) << "äººæ•°ä¸Šé™"<< "\\" << setw(8) << "é€‰ä¿®äººæ•°"  << endl;
-}
-void ShowStudentDataHeader()
-{
-    cout << "\t" << setw(10) << "å­¦å·" << "\t" << setw(8) << "å§“å" << "\t" << setw(4) << "æ€§åˆ«";
-    cout << "\t" << setw(4) << "å¹´é¾„" << "\t" << setw(20) << "ç³»åˆ«";
-    cout << "\t" << setw(20) << "ç­çº§"<< "\t" << setw(11) << "è”ç³»æ–¹å¼"  << endl;
-}
-void ShowCourseStudentHeader()
-{
-    cout << "\t" << setw(10) << "å­¦å·" << "\t" << setw(8) << "å§“å" << "\t" << setw(20) << "ç³»åˆ«";
-    cout << "\t" << setw(20) << "ç­çº§"<< "\t" << setw(11) << "è”ç³»æ–¹å¼"  << endl;
-}
-void ShowStudentCourseHeader()
-{
-    cout << "\t" << setw(10) << "è¯¾ç¨‹ä»£ç " << "\t" << setw(12) << "è¯¾ç¨‹åç§°" << "\t" << setw(4) << "å­¦æ—¶";
-    cout << "\t" << setw(4) << "å­¦åˆ†" << "\t" << setw(8) << "å¼€è¯¾å­¦æœŸ" << endl;
-}
-void ShowStudentDataPrompt()
+void ShowManagementCourseMenu()                         //¹ÜÀí¿Î³Ì²Ëµ¥
 {
     cout << "\n" << endl;
-    cout << "\t" << "ä¸ªäººä¿¡æ¯ï¼š" << endl;
+    cout << "\t\t\t\t" << "                 ¹ÜÀí¿Î³Ì²Ëµ¥              " << endl;
+    cout << "\t\t\t\t" << "********************************************" << endl;
+    cout << "\n" << endl;
+    cout << "\t\t\t\t" << "                 1. Ìí¼Ó¿Î³Ì                   " << endl;
+    cout << "\t\t\t\t" << "                 2. É¾³ı¿Î³Ì                   " << endl;
+    cout << "\t\t\t\t" << "                 3. ±à¼­¿Î³Ì                 " << endl;
+    cout << "\t\t\t\t" << "                 4. ²éÑ¯¿Î³Ì                 " << endl;
+    cout << "\t\t\t\t" << "                 5. ÏÔÊ¾¿Î³Ì                 " << endl;
+    cout << "\t\t\t\t" << "                 6. Í³¼Æ¿Î³Ì                 " << endl;
+    cout << "\t\t\t\t" << "                 7. ·µ»ØÉÏÒ»²ã                " << endl;
+    cout << "\n" << endl;
+    cout << "\t\t\t\t" << "********************************************" << endl;
+    cout << "\n ÇëÊäÈë²Ù×÷¶ÔÓ¦ĞòºÅ£º ";
+}
+void ShowFindCourseMenu()                               //²éÑ¯¿Î³Ì²Ù×÷²Ëµ¥
+{
+    cout << "\n" << endl;
+    cout << "\t\t\t\t" << "                 ²éÑ¯²Ù×÷²Ëµ¥              " << endl;
+    cout << "\t\t\t\t" << "********************************************" << endl;
+    cout << "\n" << endl;
+    cout << "\t\t\t\t" << "                 ÇëÑ¡Ôñ²éÑ¯Ä£Ê½               " << endl;
+    cout << "\t\t\t\t" << "                 1. ¿Î³Ì´úÂë                   " << endl;
+    cout << "\t\t\t\t" << "                 2. ¿Î³ÌÃû³Æ                   " << endl;
+    cout << "\t\t\t\t" << "                 3. ·µ»ØÉÏÒ»²ã                " << endl;
+    cout << "\n" << endl;
+    cout << "\t\t\t\t" << "********************************************" << endl;
+    cout << "\n ÇëÊäÈë²Ù×÷¶ÔÓ¦ĞòºÅ£º ";
+}
+void ShowCourseDataHeader()                             //¿Î³ÌÁĞ±í±íÍ·
+{
+    cout << "\t" << setw(10) << "¿Î³Ì´úÂë" << "\t" << setw(20) << "¿Î³ÌÃû³Æ" << "\t" << setw(4) << "Ñ§Ê±";
+    cout << "\t" << setw(4) << "Ñ§·Ö" << "\t" << setw(8) << "¿ª¿ÎÑ§ÆÚ";
+    cout << "\t" << setw(8) << "ÈËÊıÉÏÏŞ"<< "\\" << setw(8) << "Ñ¡ĞŞÈËÊı"  << endl;
+}
+void ShowStudentDataHeader()                            //Ñ§ÉúÁĞ±í±íÍ·
+{
+    cout << "\t" << setw(10) << "Ñ§ºÅ" << "\t" << setw(8) << "ĞÕÃû" << "\t" << setw(4) << "ĞÔ±ğ";
+    cout << "\t" << setw(4) << "ÄêÁä" << "\t" << setw(20) << "Ïµ±ğ";
+    cout << "\t" << setw(20) << "°à¼¶"<< "\t" << setw(11) << "ÁªÏµ·½Ê½"  << endl;
+}
+void ShowCourseStudentHeader()                          //Ñ¡ĞŞ¿Î³ÌÑ§ÉúÁĞ±í±íÍ·
+{
+    cout << "\t" << setw(10) << "Ñ§ºÅ" << "\t" << setw(8) << "ĞÕÃû" << "\t" << setw(20) << "Ïµ±ğ";
+    cout << "\t" << setw(20) << "°à¼¶"<< "\t" << setw(11) << "ÁªÏµ·½Ê½"  << endl;
+}
+void ShowStudentCourseHeader()                          //Ñ§ÉúÑ¡ĞŞ¿Î³ÌÁĞ±í±íÍ·
+{
+    cout << "\t" << setw(10) << "¿Î³Ì´úÂë" << "\t" << setw(20) << "¿Î³ÌÃû³Æ" << "\t" << setw(4) << "Ñ§Ê±";
+    cout << "\t" << setw(4) << "Ñ§·Ö" << "\t" << setw(8) << "¿ª¿ÎÑ§ÆÚ" << endl;
+}
+void ShowStudentDataPrompt()                            //ÏÔÊ¾Ñ§Éú¸öÈËĞÅÏ¢ÌáÊ¾
+{
+    cout << "\n" << endl;
+    cout << "\t" << "¸öÈËĞÅÏ¢£º" << endl;
     cout << "*******************************************************************************************************"
             "****************"  << endl;
 }
-void ShowStudentCourseDataPrompt()
+void ShowCourseDataPrompt()                             //ÏÔÊ¾Ñ¡¿Î¿Î³ÌĞÅÏ¢ÌáÊ¾
 {
     cout << "\n" << endl;
-    cout << "\t" << "å·²é€‰è¯¾ç¨‹ï¼š" << endl;
+    cout << "\t" << "ÒÑÑ¡¿Î³Ì£º" << endl;
     cout << "*******************************************************************************************************"
             "****************"  << endl;
 }
-void ShowFoundPrompt()
+void ShowFoundPrompt()                                  //²éÑ¯³É¹¦ÌáÊ¾
 {
     cout << "\n" << endl;
-    cout << "\t" << "æŸ¥è¯¢æˆåŠŸï¼" << endl;
+    cout << "\t" << "²éÑ¯³É¹¦£¡" << endl;
     cout << "*******************************************************************************************************"
             "****************"  << endl;
 }
-void ShowNotFoundPrompt()
+void ShowNotFoundPrompt()                               //²éÑ¯Ê§°ÜÌáÊ¾
 {
     cout << "\n" << endl;
-    cout << "\t" << "è®°å½•ä¸ºç©ºï¼" << endl;
+    cout << "\t" << "¼ÇÂ¼Îª¿Õ£¡" << endl;
 }
-void ShowFindCourseIDPrompt()
+void ShowEditCoursePrompt()                             //ÏÔÊ¾±à¼­¿Î³ÌÌáÊ¾
 {
-    cout << "\n" << endl;
-    cout << "\t" << "è¯·è¾“å…¥æƒ³è¦æŸ¥è¯¢è¯¾ç¨‹çš„è¯¾ç¨‹ä»£ç (è¾“å…¥-1å–æ¶ˆæ“ä½œ)ï¼š " ;
+    cout << "ÇëÒÀ´ÎÊäÈë¿Î³Ì´úÂë¡¢¿Î³ÌÃû³Æ¡¢Ñ§Ê±¡¢Ñ§·Ö¡¢¿ª¿ÎÑ§ÆÚ¡¢Ñ¡ĞŞÈËÊıÉÏÏŞ£¬ÊäÈë-1½áÊø" << endl;
 }
-void ShowFindCourseNamePrompt()
+void ShowEditStudentPrompt()                            //ÏÔÊ¾±à¼­Ñ§ÉúÌáÊ¾
 {
-    cout << "\n" << endl;
-    cout << "\t" << "è¯·è¾“å…¥æƒ³è¦æŸ¥è¯¢è¯¾ç¨‹çš„è¯¾ç¨‹åç§°(è¾“å…¥-1å–æ¶ˆæ“ä½œ)ï¼š " ;
+    cout << "ÇëÒÀ´ÎÊäÈëÑ§ºÅ¡¢ĞÕÃû¡¢ĞÔ±ğ¡¢ÄêÁä¡¢Ïµ±ğ¡¢°à¼¶¡¢ÁªÏµ·½Ê½£¬ÊäÈë-1½áÊø" << endl;
 }
-void ShowFindStudentIDPrompt()
+void ShowFindCourseIDPrompt()                           //ÀûÓÃ¿Î³Ì´úÂë²éÑ¯ÌáÊ¾
 {
     cout << "\n" << endl;
-    cout << "\t" << "è¯·è¾“å…¥æƒ³è¦æŸ¥è¯¢å­¦ç”Ÿçš„å­¦å·(è¾“å…¥-1å–æ¶ˆæ“ä½œ)ï¼š " ;
+    cout << "\t" << "ÇëÊäÈëÏëÒª²éÑ¯¿Î³ÌµÄ¿Î³Ì´úÂë(ÊäÈë-1È¡Ïû²Ù×÷)£º " ;
 }
-void ShowFindStudentNamePrompt()
+void ShowFindCourseNamePrompt()                         //ÀûÓÃ¿Î³ÌÃû³Æ²éÑ¯ÌáÊ¾
 {
     cout << "\n" << endl;
-    cout << "\t" << "è¯·è¾“å…¥æƒ³è¦æŸ¥è¯¢å­¦ç”Ÿçš„å§“å(è¾“å…¥-1å–æ¶ˆæ“ä½œ)ï¼š " ;
+    cout << "\t" << "ÇëÊäÈëÏëÒª²éÑ¯¿Î³ÌµÄ¿Î³ÌÃû³Æ(ÊäÈë-1È¡Ïû²Ù×÷)£º " ;
 }
-void ShowFindCourseAgainPrompt()
+void ShowFindStudentIDPrompt()                          //ÀûÓÃÑ§ÉúÑ§ºÅ²éÑ¯ÌáÊ¾
 {
     cout << "\n" << endl;
-    cout << "\t" << "æ˜¯å¦æƒ³ç»§ç»­æŸ¥è¯¢è¯¾ç¨‹ï¼Ÿ <Y/N>ï¼š " ;
+    cout << "\t" << "ÇëÊäÈëÏëÒª²éÑ¯Ñ§ÉúµÄÑ§ºÅ(ÊäÈë-1È¡Ïû²Ù×÷)£º " ;
 }
-void ShowFindStudentAgainPrompt()
+void ShowFindStudentNamePrompt()                        //ÀûÓÃÑ§ÉúĞÕÃû²éÑ¯ÌáÊ¾
 {
     cout << "\n" << endl;
-    cout << "\t" << "æ˜¯å¦æƒ³ç»§ç»­æŸ¥è¯¢å­¦ç”Ÿï¼Ÿ <Y/N>ï¼š " ;
+    cout << "\t" << "ÇëÊäÈëÏëÒª²éÑ¯Ñ§ÉúµÄĞÕÃû(ÊäÈë-1È¡Ïû²Ù×÷)£º " ;
 }
-void ShowAddCoursePrompt()
+void ShowFindCourseAgainPrompt()                        //ÊÇ·ñ¼ÌĞø²éÑ¯¿Î³ÌÌáÊ¾
 {
     cout << "\n" << endl;
-    cout << "\t" << "è¯·è¾“å…¥æƒ³è¦é€‰ä¿®è¯¾ç¨‹çš„è¯¾ç¨‹ä»£ç (è¾“å…¥-1å–æ¶ˆæ“ä½œ)ï¼š " ;
+    cout << "\t" << "ÊÇ·ñÏë¼ÌĞø²éÑ¯¿Î³Ì£¿ <Y/N>£º " ;
 }
-void ShowAddCourseAgainPrompt()
+void ShowFindStudentAgainPrompt()                       //ÊÇ·ñ¼ÌĞø²éÑ¯Ñ§ÉúÌáÊ¾
 {
     cout << "\n" << endl;
-    cout << "\t" << "æ˜¯å¦æƒ³ç»§ç»­é€‰ä¿®è¯¾ç¨‹ï¼Ÿ <Y/N>ï¼š " ;
+    cout << "\t" << "ÊÇ·ñÏë¼ÌĞø²éÑ¯Ñ§Éú£¿ <Y/N>£º " ;
 }
-void ShowDeleteCoursePrompt()
+void ShowAddCoursePrompt()                              //ÀûÓÃ¿Î³Ì´úÂëÌí¼Ó¿Î³ÌÌáÊ¾
 {
     cout << "\n" << endl;
-    cout << "\t" << "è¯·è¾“å…¥æƒ³è¦é€€é€‰è¯¾ç¨‹çš„è¯¾ç¨‹ä»£ç (è¾“å…¥-1å–æ¶ˆæ“ä½œ)ï¼š " ;
+    cout << "\t" << "ÇëÊäÈëÏëÒªÑ¡ĞŞ¿Î³ÌµÄ¿Î³Ì´úÂë(ÊäÈë-1È¡Ïû²Ù×÷)£º " ;
 }
-void ShowDeleteCourseAgainPrompt()
+void ShowAddCourseAgainPrompt()                         //ÊÇ·ñ¼ÌĞøÌí¼Ó¿Î³ÌÌáÊ¾
 {
     cout << "\n" << endl;
-    cout << "\t" << "æ˜¯å¦æƒ³ç»§ç»­é€€é€‰è¯¾ç¨‹ï¼Ÿ <Y/N>ï¼š " ;
+    cout << "\t" << "ÊÇ·ñÏë¼ÌĞøÑ¡ĞŞ¿Î³Ì£¿ <Y/N>£º " ;
 }
-void ShowTotalCoursePrompt()
+void ShowDeleteCoursePrompt()                           //ÀûÓÃ¿Î³Ì´úÂëÉ¾³ı¿Î³ÌÌáÊ¾
 {
     cout << "\n" << endl;
-    cout << "\t" << "é€‰ä¿®è¯¾ç¨‹æ€»æ•°ï¼š" ;
+    cout << "\t" << "ÇëÊäÈëÏëÒªÍËÑ¡¿Î³ÌµÄ¿Î³Ì´úÂë(ÊäÈë-1È¡Ïû²Ù×÷)£º " ;
 }
-void ShowTotalStudentPrompt()
+void ShowDeleteCourseAgainPrompt()                      //ÊÇ·ñ¼ÌĞøÉ¾³ı¿Î³ÌÌáÊ¾
 {
     cout << "\n" << endl;
-    cout << "\t" << "å­¦ç”Ÿæ€»æ•°ï¼š" ;
+    cout << "\t" << "ÊÇ·ñÏë¼ÌĞøÍËÑ¡¿Î³Ì£¿ <Y/N>£º " ;
 }
-void ShowExitPrompt()
+void ShowPrintCourseStudentPrompt()                     //ÀûÓÃÑ§ÉúÑ§ºÅÏÔÊ¾¸öÈËĞÅÏ¢ÌáÊ¾
 {
     cout << "\n" << endl;
-    cout << "\t" << "é€€å‡ºæ—¶æœªä¿å­˜çš„æ•°æ®å°†ä¼šä¸¢å¤±,æ˜¯å¦é€€å‡ºï¼Ÿ <Y/N>ï¼š " ;
+    cout << "\t" << "ÇëÊäÈëÏëÒªÏÔÊ¾Ñ¡ĞŞÑ§ÉúĞÅÏ¢µÄ¿Î³ÌµÄ¿Î³Ì´úÂë(ÊäÈë-1È¡Ïû²Ù×÷)£º " ;
+}
+void ShowPrintStudentCoursePrompt()                     //ÀûÓÃ¿Î³Ì´úÂëÏÔÊ¾¿Î³ÌĞÅÏ¢ÌáÊ¾
+{
+    cout << "\n" << endl;
+    cout << "\t" << "ÇëÊäÈëÏëÒªÏÔÊ¾Ñ¡¿ÎĞÅÏ¢µÄÑ§ÉúµÄÑ§ºÅ(ÊäÈë-1È¡Ïû²Ù×÷)£º " ;
+}
+void ShowTotalCoursePrompt()                            //ÏÔÊ¾¿Î³Ì×ÜÊıÌáÊ¾
+{
+    cout << "\n" << endl;
+    cout << "\t" << "Ñ¡ĞŞ¿Î³Ì×ÜÊı£º" ;
+}
+void ShowTotalStudentPrompt()                           //ÏÔÊ¾Ñ§Éú×ÜÊıÌáÊ¾
+{
+    cout << "\n" << endl;
+    cout << "\t" << "Ñ§Éú×ÜÊı£º" ;
+}
+void ShowExitPrompt()                                   //ÍË³ö³ÌĞò±£´æÊı¾İÌáÊ¾
+{
+    cout << "\n" << endl;
+    cout << "\t" << "ÍË³öÊ±Î´±£´æµÄÊı¾İ½«»á¶ªÊ§,ÊÇ·ñÍË³ö£¿ <Y/N>£º " ;
 }

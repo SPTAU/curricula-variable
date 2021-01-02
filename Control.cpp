@@ -3,8 +3,6 @@
 //
 
 #include <iostream>
-#include <iomanip>
-#include <fstream>
 #include <string>
 #include <map>
 #include <vector>
@@ -15,585 +13,645 @@
 #include "Student.h"
 #include "Management.h"
 #include "Show.h"
-#include "Operator.h"
 #include "Control.h"
 using namespace std;
 
 
 
-void Control::Menu()
+void Control::Menu()                            //½øÈëÖ÷²Ëµ¥
 {
-    bool opt = true;        //æ˜¯å¦å¾ªç¯çš„ä¸€ä¸ªæ ‡å¿—
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
     while (opt == true)
     {
-        system("cls");
-        ShowMainMenu();
-        //æ¥æ”¶è¾“å…¥é€‰æ‹©
+        system("cls");                  //ÇåÆÁ
+        ShowMainMenu();                         //Ö÷²Ëµ¥
         char index;
-        cin >> index;
-        //åˆ¤æ–­ç”¨æˆ·çš„é€‰æ‹©
-        switch (index)
+        cin >> index;                           //ÊäÈëÑ¡Ôñ
+        switch (index)                          //ÅĞ¶ÏÓÃ»§µÄÑ¡Ôñ
         {
             case '1':
-                StudentLogIn();        //å°ç›®å½•
+                StudentLogIn();                 //Ñ§ÉúÉí·İµÇÂ¼
                 break;
             case '2':
-                ManagementLogIn();        //å°ç›®å½•
+                ManagementLogIn();              //¹ÜÀíÔ±Éí·İµÇÂ¼
                 break;
             case '3':
-                Save();        //å°ç›®å½•
+                Save();                         //±£´æÊı¾İ
                 break;
             case '4':
-                Load();        //å°ç›®å½•
+                Load();                         //¼ÓÔØÊı¾İ
                 break;
             case '5':
-                opt = Exit();        //æŠŠæ ‡å¿—ä½ä¸ºå‡ï¼Œå°±é€€å‡ºäº†å¾ªç¯
+                opt = Exit();                   //ÍË³ö²Ëµ¥
                 break;
             default:
-                cout << "è¾“å…¥éæ³•ï¼Œè¯·é‡æ–°é€‰æ‹©!" << endl;
+                cout << "ÊäÈë·Ç·¨£¬ÇëÖØĞÂÑ¡Ôñ!" << endl;
                 break;
         }
     }
 }
-void Control::StudentLogIn()
+void Control::StudentLogIn()                    //Ñ§ÉúÉí·İµÇÂ¼
 {
     string tmp;
-    bool opt = true;
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
     while (opt)
     {
-        system("cls");
-        ShowStudentLogInID();
-        cin >> tmp;
-        if (tmp != "-1")
+        ShowStudentLogInID();                   //Ñ§ÉúÉí·İµÇÂ¼Ñ§ºÅÑéÖ¤
+        cin >> tmp;                             //ÊäÈëÑ§ºÅ
+        if (tmp != "-1")                        //ÈôÊäÈë²»Îª"-1"
         {
-            studentMI = studentM.find(tmp);
-            if (studentMI != studentM.end())
+            studentMI = studentM.find(tmp);     //ÑéÖ¤ÊäÈëÑ§ºÅ
+            if (studentMI != studentM.end())    //ÈôÊäÈëÑ§ºÅÕıÈ·
             {
                 string tmpID = tmp;
-                ShowStudentLogInName();
-                cin >> tmp;
-                if (tmp != "-1")
+                ShowStudentLogInName();         //Ñ§ÉúÉí·İµÇÂ¼ĞÕÃûÑéÖ¤
+                cin >> tmp;                     //ÊäÈëĞÕÃû
+                if (tmp != "-1")                //ÈôÊäÈë²»Îª"-1"
                 {
-                    if (studentV[studentM[tmpID]].GetName() == tmp)
+                    if (studentV[studentM[tmpID]].GetName() == tmp)         //ÑéÖ¤ÊäÈëĞÕÃû
                     {
-                        studentVI = studentV.begin() + distance(studentMI,studentM.begin());
-                        StudentMenu();
-                        opt = false;
+                        studentVI = studentV.begin() + studentM[tmpID];     //Áîµü´úÆ÷Ö¸ÏòÓÃ»§Ñ§Éú
+                        StudentMenu();          //½øÈëÑ§Éú²Ù×÷²Ëµ¥
+                        opt = false;            //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
                     }
-                    else
+                    else                        //ÈôÊäÈëĞÕÃû´íÎó
                     {
-                        cout << "å§“åä¸å­¦å·ä¸åŒ¹é…ï¼" << endl;
+                        cout << "ĞÕÃûÓëÑ§ºÅ²»Æ¥Åä£¡" << endl;
                     }
                 }
-                else
+                else                            //ÈôÊäÈëÎª"-1"
                 {
-                    cout << "å·²è¿”å›ä¸»ç›®å½•!"<< endl;
-                    opt = false;
+                    cout << "ÒÑ·µ»ØÖ÷Ä¿Â¼!"<< endl;
+                    system("pause");    //ÊäÈëÈÎÒâ¼ü¼ÌĞø
+                    system("cls");      //ÇåÆÁ
+                    opt = false;                //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
                 }
             }
-            else
+            else                                //ÈôÊäÈëÑ§ºÅ´íÎó
             {
-                cout << "è¯¥å­¦å·ä¸å­˜åœ¨ï¼" << endl;
+                cout << "¸ÃÑ§ºÅ²»´æÔÚ£¡" << endl;
             }
         }
-        else
+        else                                    //ÈôÊäÈëÎª"-1"
         {
-            cout << "å·²è¿”å›ä¸»ç›®å½•!" << endl;
-            opt = false;
+            cout << "ÒÑ·µ»ØÖ÷Ä¿Â¼!" << endl;
+            system("pause");            //ÊäÈëÈÎÒâ¼ü¼ÌĞø
+            system("cls");              //ÇåÆÁ
+            opt = false;                        //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
         }
     }
 }
-void Control::StudentMenu()
+void Control::StudentMenu()                     //½øÈëÑ§Éú²Ù×÷²Ëµ¥
 {
-    bool opt = true;
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
     while (opt)
     {
-        system("cls");
-        ShowStudentMenu();
+        system("cls");                  //ÇåÆÁ
+        ShowStudentMenu();                      //Ñ§Éú²Ù×÷²Ëµ¥
         char index;
-        cin >> index;      //æ¥å—è¾“å…¥
-        switch (index)
+        cin >> index;                           //½ÓÊÜÊäÈë
+        switch (index)                          //ÅĞ¶ÏÓÃ»§µÄÑ¡Ôñ
         {
             case '1':
-                StudentAddCourseMenu();        //å°ç›®å½•
+                StudentAddCourseMenu();         //½øÈëÑ§ÉúÑ¡¿Î²Ëµ¥
                 break;
             case '2':
-                StudentDeletingCourse();
+                StudentDeletingCourse();        //Ñ§ÉúÍËÑ¡²Ù×÷
                 break;
             case '3':
-                StudentPrintData();
+                StudentPrintData();             //ÏÔÊ¾Ñ§Éú¸öÈËĞÅÏ¢
                 break;
             case '4':
-                opt = false;
+                opt = false;                    //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
                 break;
             default:
-                cout << "\t\téæ³•è¾“å…¥!\n";
+                cout << "·Ç·¨ÊäÈë!";
                 break;
         }
     }
 }
-void Control::StudentAddCourseMenu()
+void Control::StudentAddCourseMenu()            //½øÈëÑ§ÉúÑ¡¿Î²Ëµ¥
 {
-    system("cls");
-    bool opt = true;
+    system("cls");                      //ÇåÆÁ
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
     while (opt)
     {
-        ShowStudentAddCourseMenu();
+        ShowStudentAddCourseMenu();             //Ñ¡¿Î²Ëµ¥
         char index;
-        cin >> index;      //æ¥å—è¾“å…¥
-        switch (index)
+        cin >> index;                           //½ÓÊÜÊäÈë
+        switch (index)                          //ÅĞ¶ÏÓÃ»§µÄÑ¡Ôñ
         {
             case '1':
-                opt = StudentAddingCourse();        //å°ç›®å½•
+                opt = StudentAddingCourse();    //Ñ§ÉúÑ¡¿Î²Ù×÷
                 break;
             case '2':
-                FindCourseID();
+                FindCourseID();                 //ÀûÓÃ¿Î³Ì´úÂë²éÑ¯ÌáÊ¾
                 break;
             case '3':
-                FindCourseName();
+                FindCourseName();               //ÀûÓÃ¿Î³ÌÃû³Æ²éÑ¯ÌáÊ¾
                 break;
             default:
-                cout << "\t\téæ³•è¾“å…¥ï¼Œå·²è¿”å›ä¸Šä¸€å±‚!\n";
+                cout << "·Ç·¨ÊäÈë£¬ÒÑ·µ»ØÉÏÒ»²ã!";
                 opt = false;
                 break;
         }
     }
 }
-bool Control::StudentAddingCourse()
+bool Control::StudentAddingCourse()             //Ñ§ÉúÑ¡¿Î²Ù×÷
 {
-    system("cls");
-    ShowCourseDataHeader();
-    PrintCourse();
+    system("cls");                      //ÇåÆÁ
+    ShowCourseDataHeader();                     //¿Î³ÌÁĞ±í±íÍ·
+    PrintCourse();                              //ÏÔÊ¾ËùÓĞ¿Î³ÌĞÅÏ¢
     string tmp;
-    bool opt = true;
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
     while (opt)
     {
-        ShowAddCoursePrompt();
-        cin >> tmp;
-        if (tmp != "-1")
+        ShowAddCoursePrompt();                  //ÀûÓÃ¿Î³Ì´úÂëÌí¼Ó¿Î³ÌÌáÊ¾
+        cin >> tmp;                             //ÊäÈë¿Î³Ì´úÂë
+        if (tmp != "-1")                        //ÈôÊäÈë²»Îª"-1"
         {
-            StudentAddCourse(tmp);
-            ShowAddCourseAgainPrompt();
-            cin >> tmp;
-            if (tmp == "n" && tmp == "N")
+            StudentAddCourse(tmp);          //Ñ§ÉúÑ¡ĞŞ¿Î³Ì
+            ShowAddCourseAgainPrompt();         //ÊÇ·ñ¼ÌĞøÌí¼Ó¿Î³ÌÌáÊ¾
+            cin >> tmp;                         //½ÓÊÜÊäÈë
+            if (tmp == "n" || tmp == "N")       //ÈôÊäÈëÎª"n"»ò"N"
             {
-                opt = false;
+                opt = false;                    //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
             }
         }
-        else
+        else                                    //ÈôÊäÈëÎª"-1"
         {
-            opt = false;
+            opt = false;                        //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
         }
     }
-    return false;
+    return false;                               //·µ»Øfalse£¬ÍË³öÑ­»·
 }
-void Control::StudentDeletingCourse()
+void Control::StudentDeletingCourse()           //Ñ§ÉúÍËÑ¡²Ù×÷
 {
-    system("cls");
-    ShowStudentCourseDataPrompt();
-    ShowStudentCourseHeader();
-    studentVI->DisplayCourse();
+    system("cls");                      //ÇåÆÁ
+    ShowCourseDataPrompt();                     //ÏÔÊ¾Ñ¡¿Î¿Î³ÌĞÅÏ¢ÌáÊ¾
+    ShowStudentCourseHeader();                  //Ñ§ÉúÑ¡ĞŞ¿Î³ÌÁĞ±í±íÍ·
+    studentVI->DisplayCourse();                 //ÏÔÊ¾Ñ¡¿ÎĞÅÏ¢
     string tmp;
-    bool opt = true;
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
     while (opt)
     {
-        ShowDeleteCoursePrompt();
-        cin >> tmp;
-        if (tmp != "-1")
+        ShowDeleteCoursePrompt();               //ÀûÓÃ¿Î³Ì´úÂëÉ¾³ı¿Î³ÌÌáÊ¾
+        cin >> tmp;                             //ÊäÈë¿Î³Ì´úÂë
+        if (tmp != "-1")                        //ÈôÊäÈë²»Îª"-1"
         {
-            StudentDeleteCourse(tmp);
-            ShowDeleteCourseAgainPrompt();
-            cin >> tmp;
-            if (tmp == "n" && tmp == "N")
+            StudentDeleteCourse(tmp);       //Ñ§ÉúÍËÑ¡¿Î³Ì
+            ShowDeleteCourseAgainPrompt();      //ÊÇ·ñ¼ÌĞøÉ¾³ı¿Î³ÌÌáÊ¾
+            cin >> tmp;                         //½ÓÊÜÊäÈë
+            if (tmp == "n" || tmp == "N")       //ÈôÊäÈëÎª"n"»ò"N"
             {
-                opt = false;
+                opt = false;                    //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
             }
         }
-        else
+        else                                    //ÈôÊäÈëÎª"-1"
         {
-            opt = false;
+            opt = false;                        //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
         }
     }
 }
-void Control::StudentPrintData()
+void Control::StudentPrintData()                //ÏÔÊ¾Ñ§Éú¸öÈËĞÅÏ¢
 {
-    system("cls");
-    ShowStudentDataPrompt();
-    studentVI->DisplayStudent();
+    system("cls");                      //ÇåÆÁ
+    ShowStudentDataPrompt();                    //ÏÔÊ¾Ñ§Éú¸öÈËĞÅÏ¢ÌáÊ¾
+    studentVI->DisplayStudent();                //ÏÔÊ¾Ñ§ÉúĞÅÏ¢
     cout << "\n" << endl;
-    ShowStudentCourseDataPrompt();
-    studentVI->DisplayCourse();
+    ShowCourseDataPrompt();                     //ÏÔÊ¾Ñ¡¿Î¿Î³ÌĞÅÏ¢ÌáÊ¾
+    studentVI->DisplayCourse();                 //ÏÔÊ¾Ñ¡¿ÎĞÅÏ¢
     cout << "\n" << endl;
-    system("pause");
+    system("pause");                    //ÊäÈëÈÎÒâ¼ü¼ÌĞø
 }
-void Control::ManagementLogIn()
+void Control::ManagementLogIn()                 //¹ÜÀíÔ±Éí·İµÇÂ¼
 {
     string tmp;
-    bool opt = true;
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
     while (opt)
     {
-        system("cls");
-        ShowManagementLogIn();
-        cin >> tmp;
-        if (tmp == "3118002296")
+        ShowManagementLogIn();                  //¹ÜÀíÔ±Éí·İµÇÂ¼ÃÜÂëÑéÖ¤
+        cin >> tmp;                             //ÊäÈëÃÜÂë
+        if (tmp == "3118002296")                //ÑéÖ¤ÃÜÂë
         {
-            ManagementMenu();
-            opt = false;
+            ManagementMenu();                   //½øÈë¹ÜÀíÔ±²Ù×÷²Ëµ¥
+            opt = false;                        //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
         }
-        else if (tmp != "-1")
+        else if (tmp != "-1")                   //ÈôÊäÈë²»Îª"-1"ÇÒÃÜÂëÑéÖ¤Ê§°Ü
         {
-            cout << "å¯†ç é”™è¯¯ï¼" << endl;
+            cout << "ÃÜÂë´íÎó£¡" << endl;
         }
-        else
+        else                                    //ÈôÊäÈëÎª"-1"
         {
-            cout << "å·²è¿”å›ä¸»ç›®å½•!" << endl;
-            opt = false;
+            cout << "ÒÑ·µ»ØÖ÷Ä¿Â¼!" << endl;
+            system("pause");            //ÊäÈëÈÎÒâ¼ü¼ÌĞø
+            system("cls");              //ÇåÆÁ
+            opt = false;                        //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
         }
     }
 }
-void Control::ManagementMenu()
+void Control::ManagementMenu()                  //½øÈë¹ÜÀíÔ±²Ù×÷²Ëµ¥
 {
-    bool opt = true;
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
     while (opt)
     {
-        system("cls");
-        ShowManagementMenu();
+        system("cls");                  //ÇåÆÁ
+        ShowManagementMenu();                   //¹ÜÀíÔ±²Ù×÷²Ëµ¥
         char index;
-        cin >> index;      //æ¥å—è¾“å…¥
-        switch (index)
+        cin >> index;                           //½ÓÊÜÊäÈë
+        switch (index)                          //ÅĞ¶ÏÓÃ»§ÊäÈë
         {
             case '1':
-                ManagementStudentMenu();        //å°ç›®å½•
+                ManagementStudentMenu();        //½øÈë¹ÜÀíÑ§Éú²Ù×÷²Ëµ¥
                 break;
             case '2':
-                ManagementCourseMenu();
+                ManagementCourseMenu();         //½øÈë¹ÜÀí¿Î³Ì²Ù×÷²Ëµ¥
                 break;
             case '3':
-                opt = false;
+                opt = false;                    //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
                 break;
             default:
-                cout << "éæ³•è¾“å…¥!" << endl;
+                cout << "·Ç·¨ÊäÈë!" << endl;
                 break;
         }
     }
 }
-void Control::ManagementStudentMenu()
+void Control::ManagementStudentMenu()           //½øÈë¹ÜÀíÑ§Éú²Ù×÷²Ëµ¥
 {
-    bool opt = true;
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
     while (opt)
     {
-        system("cls");
-        ShowManagementStudentMenu();
+        system("cls");                  //ÇåÆÁ
+        ShowManagementStudentMenu();            //¹ÜÀíÑ§Éú²Ëµ¥
         char index;
-        cin >> index;      //æ¥å—è¾“å…¥
-        switch (index)
+        cin >> index;                           //½ÓÊÜÊäÈë
+        switch (index)                          //ÅĞ¶ÏÓÃ»§ÊäÈë
         {
             case '1':
-                AddStudent();        //å°ç›®å½•
+                AddStudent();                   //¹ÜÀíÔ±Ìí¼ÓÑ§Éú
                 break;
             case '2':
-                DeleteStudent();
+                DeleteStudent();                //¹ÜÀíÔ±É¾³ıÑ§Éú
                 break;
             case '3':
-                EditStudent();
+                EditStudent();                  //¹ÜÀíÔ±±à¼­Ñ§Éú
                 break;
             case '4':
-                FindStudentMenu();
+                FindStudentMenu();              //½øÈë²éÑ¯Ñ§Éú²Ù×÷²Ëµ¥
                 break;
             case '5':
-                PrintStudent();
+                PrintStudentAll();              //ÏÔÊ¾ËùÓĞÑ§ÉúĞÅÏ¢
                 break;
             case '6':
-                TotalStudent();
+                TotalStudent();                 //»ñÈ¡Ñ§Éú×ÜÊı
                 break;
             case '7':
-                opt = false;
+                opt = false;                    //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
                 break;
             default:
-                cout << "éæ³•è¾“å…¥!" << endl;
+                cout << "·Ç·¨ÊäÈë!" << endl;
                 break;
         }
     }
 }
-void Control::FindStudentMenu()
+void Control::FindStudentMenu()                 //½øÈë²éÑ¯Ñ§Éú²Ù×÷²Ëµ¥
 {
-    bool opt = true;
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
     while (opt)
     {
-        system("cls");
-        ShowFindStudentMenu();
+        system("cls");                  //ÇåÆÁ
+        ShowFindStudentMenu();                  //²éÑ¯Ñ§Éú²Ù×÷²Ëµ¥
         char index;
-        cin >> index;      //æ¥å—è¾“å…¥
-        switch (index)
+        cin >> index;                           //½ÓÊÜÊäÈë
+        switch (index)                          //ÅĞ¶ÏÓÃ»§ÊäÈë
         {
             case '1':
-                FindStudentID();        //å°ç›®å½•
+                FindStudentID();                //ÀûÓÃÑ§ÉúÑ§ºÅ²éÑ¯
                 break;
             case '2':
-                FindStudentName();
+                FindStudentName();              //ÀûÓÃÑ§ÉúĞÕÃû²éÑ¯
                 break;
             case '3':
-                opt = false;
+                opt = false;                    //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
                 break;
             default:
-                cout << "éæ³•è¾“å…¥!" << endl;
+                cout << "·Ç·¨ÊäÈë!" << endl;
                 break;
         }
     }
 }
-void Control::FindStudentID()
+void Control::FindStudentID()                   //ÀûÓÃÑ§ÉúÑ§ºÅ²éÑ¯
 {
-    system("cls");
+    system("cls");                      //ÇåÆÁ
     string tmp;
-    bool opt = true;
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
     while (opt)
     {
-        cout << "\n" << endl;
-        ShowFindStudentIDPrompt();
-        cin >> tmp;
-        if (tmp != "-1")
+        ShowFindStudentIDPrompt();              //ÀûÓÃÑ§ÉúÑ§ºÅ²éÑ¯ÌáÊ¾
+        cin >> tmp;                             //ÊäÈëÑ§ÉúÑ§ºÅ
+        if (tmp != "-1")                        //ÈôÊäÈë²»Îª"-1"
         {
-            int index = FindCourse(tmp,true);
-            if (index != -1)
+            int index = FindCourse(tmp,true);       //²éÑ¯Ä¿±êÑ§Éú
+            if (index != -1)                    //ÈôÕÒµ½Ä¿±êÑ§Éú
             {
-                ShowFoundPrompt();
-                ShowStudentDataHeader();
-                studentV[index].DisplayStudent();
-                ShowFindStudentAgainPrompt();
-                cin >> tmp;
-                if (tmp == "n" && tmp == "N")
+                ShowFoundPrompt();              //²éÑ¯³É¹¦ÌáÊ¾
+                ShowStudentDataHeader();        //Ñ§ÉúÁĞ±í±íÍ·
+                studentV[index].DisplayStudent();       //ÏÔÊ¾Ñ§ÉúĞÅÏ¢
+                ShowFindStudentAgainPrompt();   //ÊÇ·ñ¼ÌĞø²éÑ¯Ñ§ÉúÌáÊ¾
+                cin >> tmp;                     //½ÓÊÜÊäÈë
+                if (tmp == "n" || tmp == "N")   //ÈôÊäÈëÎª"n"»ò"N"
                 {
-                    opt = false;
+                    opt = false;                //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
                 }
             }
-            else
+            else                                //ÈôÎ´ÕÒµ½Ä¿±êÑ§Éú
             {
-                ShowNotFoundPrompt();
-                opt = false;
+                ShowNotFoundPrompt();           //²éÑ¯Ê§°ÜÌáÊ¾
+                opt = false;                    //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
             }
         }
-        else
+        else                                    //ÈôÊäÈëÎª"-1"
         {
-            opt = false;
+            opt = false;                        //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
         }
     }
 }
-void Control::FindStudentName()
+void Control::FindStudentName()                 //ÀûÓÃÑ§ÉúĞÕÃû²éÑ¯
 {
-    system("cls");
+    system("cls");                      //ÇåÆÁ
     string tmp;
-    bool opt = true;
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
     while (opt)
     {
-        cout << "\n" << endl;
-        ShowFindStudentNamePrompt();
-        cin >> tmp;
-        if (tmp != "-1")
+        ShowFindStudentNamePrompt();            //ÀûÓÃÑ§ÉúĞÕÃû²éÑ¯ÌáÊ¾
+        cin >> tmp;                             //ÊäÈëÑ§ÉúĞÕÃû
+        if (tmp != "-1")                        //ÈôÊäÈë²»Îª"-1"
         {
-            int index = FindStudent(tmp, false);
-            if (index != -1)
+            int index = FindStudent(tmp, false);        //²éÑ¯Ä¿±êÑ§Éú
+            if (index != -1)                    //ÈôÕÒµ½Ä¿±êÑ§Éú
             {
-                ShowFoundPrompt();
-                ShowStudentDataHeader();
-                studentV[index].DisplayStudent();
-                ShowFindStudentAgainPrompt();
-                cin >> tmp;
-                if (tmp == "n" && tmp == "N")
+                ShowFoundPrompt();              //²éÑ¯³É¹¦ÌáÊ¾
+                ShowStudentDataHeader();        //Ñ§ÉúÁĞ±í±íÍ·
+                studentV[index].DisplayStudent();       //ÏÔÊ¾Ñ§ÉúĞÅÏ¢
+                ShowFindStudentAgainPrompt();   //ÊÇ·ñ¼ÌĞø²éÑ¯Ñ§ÉúÌáÊ¾
+                cin >> tmp;                     //½ÓÊÜÊäÈë
+                if (tmp == "n" || tmp == "N")   //ÈôÊäÈëÎª"n"»ò"N"
                 {
-                    opt = false;
+                    opt = false;                //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
                 }
             }
-            else
+            else                                //ÈôÎ´ÕÒµ½Ä¿±êÑ§Éú
             {
-                ShowNotFoundPrompt();
-                opt = false;
+                ShowNotFoundPrompt();           //²éÑ¯Ê§°ÜÌáÊ¾
+                opt = false;                    //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
             }
         }
-        else
+        else                                    //ÈôÊäÈëÎª"-1"
         {
-            opt = false;
+            opt = false;                        //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
         }
     }
 }
-void Control::PrintStudentCourse()
+void Control::PrintStudentAll()                 //ÏÔÊ¾ËùÓĞÑ§ÉúĞÅÏ¢
 {
-    *
-}
-void Control::ManagementCourseMenu()
-{
-    bool opt = true;
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
     while (opt)
     {
-        system("cls");
-        ShowManagementCourseMenu();
+        PrintStudent();                         //ÏÔÊ¾ËùÓĞÑ§ÉúĞÅÏ¢
+        opt = PrintStudentCourse();             //ÏÔÊ¾Ñ§ÉúÑ¡ĞŞ¿Î³ÌĞÅÏ¢
+    }
+}
+bool Control::PrintStudentCourse()              //ÏÔÊ¾Ñ§ÉúÑ¡ĞŞ¿Î³ÌĞÅÏ¢
+{
+    string index;
+    ShowPrintStudentCoursePrompt();             //ÏÔÊ¾Ñ§ÉúÑ¡ĞŞ¿Î³ÌĞÅÏ¢ÌáÊ¾
+    cin >> index;                               //ÊäÈëÑ§ºÅ
+    if (index != "-1")                          //ÈôÊäÈë²»Îª"-1"
+    {
+        if (FindStudent(index, true) != -1)     //²éÑ¯Ä¿±êÑ§Éú£¬ÈôÕÒµ½Ä¿±êÑ§Éú
+        {
+            ShowCourseDataPrompt();             //ÏÔÊ¾Ñ¡¿Î¿Î³ÌĞÅÏ¢ÌáÊ¾
+            ShowStudentCourseHeader();          //Ñ§ÉúÑ¡ĞŞ¿Î³ÌÁĞ±í±íÍ·
+            studentV[FindStudent(index, true)].DisplayCourse();     //ÏÔÊ¾Ñ¡¿ÎĞÅÏ¢
+            system("pause");            //ÊäÈëÈÎÒâ¼ü¼ÌĞø
+        }
+        else                                    //ÈôÎ´ÕÒµ½Ä¿±êÑ§Éú
+        {
+            cout << "\n" << endl;
+            cout << "¼ÇÂ¼Îª¿Õ£¡" << endl;
+        }
+        return true;                            //·µ»Øtrue£¬¼ÌĞøÑ­»·
+    }
+    else                                        //ÈôÊäÈëÎª"-1"
+    {
+        return false;                           //·µ»Øfalse£¬ÍË³öÑ­»·
+    }
+}
+void Control::ManagementCourseMenu()            //½øÈë¹ÜÀí¿Î³Ì²Ù×÷²Ëµ¥
+{
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
+    while (opt)
+    {
+        system("cls");                  //ÇåÆÁ
+        ShowManagementCourseMenu();             //¹ÜÀí¿Î³Ì²Ëµ¥
         char index;
-        cin >> index;      //æ¥å—è¾“å…¥
-        switch (index)
+        cin >> index;                           //½ÓÊÜÊäÈë
+        switch (index)                          //ÅĞ¶ÏÓÃ»§ÊäÈë
         {
             case '1':
-                AddCourse();        //å°ç›®å½•
+                AddCourse();                    //¹ÜÀíÔ±Ìí¼Ó¿Î³Ì
                 break;
             case '2':
-                DeleteCourse();
+                DeleteCourse();                 //¹ÜÀíÔ±É¾³ı¿Î³Ì
                 break;
             case '3':
-                EditCourse();
+                EditCourse();                   //¹ÜÀíÔ±±à¼­¿Î³Ì
                 break;
             case '4':
-                FindCourseMenu();
+                FindCourseMenu();               //½øÈë²éÑ¯¿Î³Ì²Ù×÷²Ëµ¥
                 break;
             case '5':
-                PrintCourse();
+                PrintCourseAll();               //ÏÔÊ¾ËùÓĞ¿Î³ÌĞÅÏ¢
                 break;
             case '6':
-                TotalCourse();
+                TotalCourse();                  //»ñÈ¡¿Î³Ì×ÜÊı
                 break;
             case '7':
-                opt = false;
+                opt = false;                    //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
                 break;
             default:
-                cout << "éæ³•è¾“å…¥!" << endl;
+                cout << "·Ç·¨ÊäÈë!" << endl;
                 break;
         }
     }
 }
-void Control::FindCourseMenu()
+void Control::FindCourseMenu()                  //½øÈë²éÑ¯¿Î³Ì²Ù×÷²Ëµ¥
 {
-    bool opt = true;
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
     while (opt)
     {
-        system("cls");
-        ShowFindCourseMenu();
+        system("cls");                  //ÇåÆÁ
+        ShowFindCourseMenu();                   //²éÑ¯¿Î³Ì²Ù×÷²Ëµ¥
         char index;
-        cin >> index;      //æ¥å—è¾“å…¥
-        switch (index)
+        cin >> index;                           //½ÓÊÜÊäÈë
+        switch (index)                          //ÅĞ¶ÏÓÃ»§ÊäÈë
         {
             case '1':
-                FindCourseID();        //å°ç›®å½•
+                FindCourseID();                 //ÀûÓÃ¿Î³Ì´úÂë²éÑ¯ÌáÊ¾
                 break;
             case '2':
-                FindCourseName();
+                FindCourseName();               //ÀûÓÃ¿Î³ÌÃû³Æ²éÑ¯ÌáÊ¾
                 break;
             case '3':
-                opt = false;
+                opt = false;                    //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
                 break;
             default:
-                cout << "éæ³•è¾“å…¥!" << endl;
+                cout << "·Ç·¨ÊäÈë!" << endl;
                 break;
         }
     }
 }
-void Control::FindCourseID()
+void Control::FindCourseID()                    //ÀûÓÃ¿Î³Ì´úÂë²éÑ¯ÌáÊ¾
 {
-    system("cls");
+    system("cls");                      //ÇåÆÁ
     string tmp;
-    bool opt = true;
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
     while (opt)
     {
-        cout << "\n" << endl;
-        ShowFindCourseIDPrompt();
-        cin >> tmp;
-        if (tmp != "-1")
+        ShowFindCourseIDPrompt();               //ÀûÓÃ¿Î³Ì´úÂë²éÑ¯ÌáÊ¾
+        cin >> tmp;                             //ÊäÈë¿Î³Ì´úÂë
+        if (tmp != "-1")                        //ÈôÊäÈë²»Îª"-1"
         {
-            int index = FindCourse(tmp,true);
-            if (index != -1)
+            int index = FindCourse(tmp,true);       //²éÑ¯Ä¿±ê¿Î³Ì
+            if (index != -1)                    //ÈôÕÒµ½Ä¿±ê¿Î³Ì
             {
-                ShowFoundPrompt();
-                ShowCourseDataHeader();
-                courseV[index].DisplayCourse();
-                ShowFindCourseAgainPrompt();
-                cin >> tmp;
-                if (tmp == "n" && tmp == "N")
+                ShowFoundPrompt();              //²éÑ¯³É¹¦ÌáÊ¾
+                ShowCourseDataHeader();         //¿Î³ÌÁĞ±í±íÍ·
+                courseV[index].DisplayCourse(); //ÏÔÊ¾Ñ¡¿ÎĞÅÏ¢
+                ShowFindCourseAgainPrompt();    //ÊÇ·ñ¼ÌĞø²éÑ¯¿Î³ÌÌáÊ¾
+                cin >> tmp;                     //½ÓÊÜÊäÈë
+                if (tmp == "n" || tmp == "N")   //ÈôÊäÈëÎª"n"»ò"N"
                 {
-                    opt = false;
+                    opt = false;                //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
                 }
             }
-            else
+            else                                //ÈôÎ´ÕÒµ½Ä¿±ê¿Î³Ì
             {
-                ShowNotFoundPrompt();
-                opt = false;
+                ShowNotFoundPrompt();           //²éÑ¯Ê§°ÜÌáÊ¾
+                opt = false;                    //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
             }
         }
-        else
+        else                                    //ÈôÊäÈëÎª"-1"
         {
-            opt = false;
+            opt = false;                        //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
         }
     }
 }
-void Control::FindCourseName()
+void Control::FindCourseName()                  //ÀûÓÃ¿Î³ÌÃû³Æ²éÑ¯ÌáÊ¾
 {
-    system("cls");
+    system("cls");                      //ÇåÆÁ
     string tmp;
-    bool opt = true;
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
     while (opt)
     {
-        cout << "\n" << endl;
-        ShowFindCourseNamePrompt();
-        cin >> tmp;
-        if (tmp != "-1")
+        ShowFindCourseNamePrompt();             //ÀûÓÃ¿Î³ÌÃû³Æ²éÑ¯ÌáÊ¾
+        cin >> tmp;                             //ÊäÈë¿Î³ÌÃû³Æ
+        if (tmp != "-1")                        //ÈôÊäÈë²»Îª"-1"
         {
-            int index = FindCourse(tmp, false);
-            if (index != -1)
+            int index = FindCourse(tmp, false);     //²éÑ¯Ä¿±ê¿Î³Ì
+            if (index != -1)                    //ÈôÕÒµ½Ä¿±ê¿Î³Ì
             {
-                ShowFoundPrompt();
-                ShowCourseDataHeader();
-                courseV[index].DisplayCourse();
-                ShowFindCourseAgainPrompt();
-                cin >> tmp;
-                if (tmp == "n" && tmp == "N")
+                ShowFoundPrompt();              //²éÑ¯³É¹¦ÌáÊ¾
+                ShowCourseDataHeader();         //¿Î³ÌÁĞ±í±íÍ·
+                courseV[index].DisplayCourse(); //ÏÔÊ¾Ñ¡¿ÎĞÅÏ¢
+                ShowFindCourseAgainPrompt();    //ÊÇ·ñ¼ÌĞø²éÑ¯¿Î³ÌÌáÊ¾
+                cin >> tmp;                     //½ÓÊÜÊäÈë
+                if (tmp == "n" || tmp == "N")   //ÈôÊäÈëÎª"n"»ò"N"
                 {
-                    opt = false;
+                    opt = false;                //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
                 }
             }
-            else
+            else                                //ÈôÎ´ÕÒµ½Ä¿±ê¿Î³Ì
             {
-                ShowNotFoundPrompt();
-                opt = false;
+                ShowNotFoundPrompt();           //²éÑ¯Ê§°ÜÌáÊ¾
+                opt = false;                    //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
             }
         }
-        else
+        else                                    //ÈôÊäÈëÎª"-1"
         {
-            opt = false;
+            opt = false;                        //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
         }
     }
 }
-void Control::PrintCourseStudent()
+void Control::PrintCourseAll()                  //ÏÔÊ¾ËùÓĞ¿Î³ÌĞÅÏ¢
 {
-    *
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
+    while (opt)
+    {
+        PrintCourse();                          //ÏÔÊ¾ËùÓĞ¿Î³ÌĞÅÏ¢
+        opt = PrintCourseStudent();             //ÏÔÊ¾¿Î³ÌÑ¡ĞŞÑ§ÉúĞÅÏ¢
+    }
 }
-void Control::Save()
+bool Control::PrintCourseStudent()              //ÏÔÊ¾¿Î³ÌÑ¡ĞŞÑ§ÉúĞÅÏ¢
 {
-    SaveStudent();
-    SaveCourse();
+    string index;
+    ShowPrintCourseStudentPrompt();             //ÏÔÊ¾¿Î³ÌÑ¡ĞŞÑ§ÉúĞÅÏ¢ÌáÊ¾
+    cin >> index;                               //ÊäÈë¿Î³Ì´úÂë
+    if (index != "-1")                          //ÈôÊäÈë²»Îª"-1"
+    {
+        int i = FindCourse(index, true);        //²éÑ¯Ä¿±êÑ§Éú
+        if (i != -1)                            //ÈôÕÒµ½Ä¿±ê¿Î³Ì
+        {
+            ShowStudentDataPrompt();            //ÏÔÊ¾Ñ§Éú¸öÈËĞÅÏ¢ÌáÊ¾
+            ShowCourseStudentHeader();          //Ñ¡ĞŞ¿Î³ÌÑ§ÉúÁĞ±í±íÍ·
+            courseV[i].DisplayStudent();        //ÏÔÊ¾Ñ¡¿ÎÑ§ÉúĞÅÏ¢
+            system("pause");            //ÊäÈëÈÎÒâ¼ü¼ÌĞø
+        }
+        else                                    //ÈôÎ´ÕÒµ½Ä¿±ê¿Î³Ì
+        {
+            cout << "\n" << endl;
+            cout << "¼ÇÂ¼Îª¿Õ£¡" << endl;
+        }
+        return true;                            //·µ»Øtrue£¬¼ÌĞøÑ­»·
+    }
+    else                                        //ÈôÊäÈëÎª"-1"
+    {
+        return false;                           //·µ»Øtrue£¬ÍË³öÑ­»·
+    }
 }
-void Control::Load()
+void Control::Save()                            //±£´æÊı¾İ
 {
-    LoadCourse();
-    LoadStudent();
+    SaveStudent();                              //±£´æÑ§ÉúÊı¾İ
+    SaveCourse();                               //±£´æ¿Î³ÌÊı¾İ
 }
-bool Control::Exit()
+void Control::Load()                            //¼ÓÔØÊı¾İ
+{
+    LoadCourse();                               //¼ÓÔØ¿Î³ÌÊı¾İ
+    LoadStudent();                              //¼ÓÔØÑ§ÉúÊı¾İ
+}
+bool Control::Exit()                            //ÍË³ö²Ëµ¥
 {
     char index;
-    bool opt = true;
-    bool returnIndex = true;
+    bool opt = true;                            //Ñ­»·µÄ±êÖ¾Î»
+    bool returnIndex = true;                    //·µ»ØÖµ
     while (opt)
     {
-        ShowExitPrompt();
-        cin >> index;
-        switch (index)
+        ShowExitPrompt();                       //ÍË³ö³ÌĞò±£´æÊı¾İÌáÊ¾
+        cin >> index;                           //½ÓÊÜÊäÈë
+        switch (index)                          //ÅĞ¶ÏÓÃ»§ÊäÈë
         {
             case 'y':
             case 'Y':
-                returnIndex = false;
-                opt = false;
+                returnIndex = false;            //ÉèÖÃ·µ»ØÖµÎªfalse£¬ÍË³öÑ­»·
+                opt = false;                    //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
                 break;
             case 'n':
             case 'N':
-                returnIndex = true;
-                opt = false;
+                returnIndex = true;             //ÉèÖÃ·µ»ØÖµÎªtrue£¬¼ÌĞøÑ­»·
+                opt = false;                    //ÉèÖÃ±êÖ¾Î»Îªfalse£¬ÍË³öÑ­»·
                 break;
             default:
-                cout << "éæ³•è¾“å…¥ï¼" << endl;
+                cout << "·Ç·¨ÊäÈë£¡" << endl;
                 break;
         }
     }

@@ -12,14 +12,12 @@ class Student;
 
 struct StudentData
 {
-    Student *ps;                            //student鎸囬拡
-    string _studentID;                      //瀛﹀彿
-    string _studentName;                    //濮撳悕
-    string _studentDepartment;              //绯诲埆
-    string _studentClass;                   //鐝骇
-    string _studentPhoneNumber;             //鑱旂郴鏂瑰紡
+    string _studentID;                      //学号
+    string _studentName;                    //姓名
+    string _studentDepartment;              //系别
+    string _studentClass;                   //班级
+    string _studentPhoneNumber;             //联系方式
     friend ostream&operator<<(ostream &os,StudentData &stu);
-    friend istream&operator>>(istream &is,StudentData &stu);
 };
 
 #endif //SYSTEMDESIGN_STUDENTDATA_STRUCT_H

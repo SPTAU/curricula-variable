@@ -16,44 +16,46 @@ class Student;
 
 class Course
 {
-    vector<StudentData> studentDV;
-    map<string,int> studentDM;
-    map<string,int>::iterator studentDMI;
 public:
     Course();
     Course(string &id,string &name,string &period,
            string &credit,string &semester,int &maximum);
+    Course(Course& cour);
     ~Course();
 private:
-    string _id;                 //è¯¾ç¨‹ä»£ç 
-    string _name;               //è¯¾ç¨‹åç§°
-    string _period;             //å­¦æ—¶
-    string _credit;             //å­¦åˆ†
-    string _semester;           //å¼€è¯¾å­¦æœŸ
-    int _maximum;               //é€‰ä¿®äººæ•°ä¸Šé™
-    int _studentAmount;         //é€‰ä¿®å­¦ç”Ÿæ•°ç›®
+    string _id;                 //¿Î³Ì´úÂë
+    string _name;               //¿Î³ÌÃû³Æ
+    string _period;             //Ñ§Ê±
+    string _credit;             //Ñ§·Ö
+    string _semester;           //¿ª¿ÎÑ§ÆÚ
+    int _maximum;               //Ñ¡ĞŞÈËÊıÉÏÏŞ
+    int _studentAmount;         //Ñ¡ĞŞÑ§ÉúÊıÄ¿
 public:
-    void SetID(string &id);                     //è®¾ç½®è¯¾ç¨‹ä»£ç 
-    void SetName(string &name);                 //è®¾ç½®è¯¾ç¨‹åç§°
-    void SetPeriod(string &period);             //è®¾ç½®æ€»å­¦æ—¶
-    void SetCredit(string &credit);             //è®¾ç½®å­¦åˆ†
-    void SetSemester(string &semester);         //è®¾ç½®å¼€è¯¾å­¦æœŸ
-    void SetMaximum(int maximum);               //è®¾ç½®é€‰ä¿®äººæ•°ä¸Šé™
-    string &GetID();            //è·å–è¯¾ç¨‹ä»£ç 
-    string &GetName();          //è·å–è¯¾ç¨‹åç§°
-    string &GetPeriod();        //è·å–æ€»å­¦æ—¶
-    string &GetCredit();        //è·å–å­¦åˆ†
-    string &GetSemester();      //è·å–å¼€è¯¾å­¦æœŸ
-    int& GetMaximum();           //è·å–é€‰ä¿®äººæ•°ä¸Šé™
-    int& GetStudentAmount();     //è·å–é€‰ä¿®å­¦ç”Ÿæ•°ç›®
-    void Add(Student stu);                      //æ·»åŠ é€‰è¯¾å­¦ç”Ÿ
-    void Delete(string &studentID,bool mode);   //åˆ é™¤é€‰è¯¾å­¦ç”Ÿ
-    void DisplayCourse();                       //æ˜¾ç¤ºé€‰è¯¾ä¿¡æ¯
-    void DisplayStudent();                      //æ˜¾ç¤ºé€‰è¯¾å­¦ç”Ÿä¿¡æ¯
-    void Sort();                                //å¯¹é€‰è¯¾å­¦ç”Ÿè¿›è¡Œæ’åº
-    static bool comp(StudentData &cour1, StudentData &cour2);               //è‡ªå®šä¹‰æ¯”è¾ƒæ ‡å‡†
-    friend ostream&operator<<(ostream &os, Course &stu);                    //é‡è½½Courseè¾“å‡ºæµ
-    friend istream&operator>>(istream &is, Course &stu);                    //é‡è½½Courseè¾“å…¥æµ
+    vector<StudentData> studentDV;              //StudentDataµÄVectorÈİÆ÷
+    map<string,int> studentDM;                  //StudentDataµÄMapÈİÆ÷
+    map<string,int>::iterator studentDMI;       //StudentDataµÄMapÈİÆ÷µÄµü´úÆ÷
+    void SetID(string &id);                     //ÉèÖÃ¿Î³Ì´úÂë
+    void SetName(string &name);                 //ÉèÖÃ¿Î³ÌÃû³Æ
+    void SetPeriod(string &period);             //ÉèÖÃ×ÜÑ§Ê±
+    void SetCredit(string &credit);             //ÉèÖÃÑ§·Ö
+    void SetSemester(string &semester);         //ÉèÖÃ¿ª¿ÎÑ§ÆÚ
+    void SetMaximum(int maximum);               //ÉèÖÃÑ¡ĞŞÈËÊıÉÏÏŞ
+    string &GetID();            //»ñÈ¡¿Î³Ì´úÂë
+    string &GetName();          //»ñÈ¡¿Î³ÌÃû³Æ
+    string &GetPeriod();        //»ñÈ¡×ÜÑ§Ê±
+    string &GetCredit();        //»ñÈ¡Ñ§·Ö
+    string &GetSemester();      //»ñÈ¡¿ª¿ÎÑ§ÆÚ
+    int& GetMaximum();          //»ñÈ¡Ñ¡ĞŞÈËÊıÉÏÏŞ
+    int& GetStudentAmount();    //»ñÈ¡Ñ¡ĞŞÑ§ÉúÊıÄ¿
+    void Add(Student &stu);                     //Ìí¼ÓÑ¡¿ÎÑ§Éú
+    void Delete(string &studentID);             //É¾³ıÑ¡¿ÎÑ§Éú
+    void DisplayCourse();                       //ÏÔÊ¾Ñ¡¿ÎĞÅÏ¢
+    void DisplayStudent();                      //ÏÔÊ¾Ñ¡¿ÎÑ§ÉúĞÅÏ¢
+    void Sort();                                //¶ÔÑ¡¿ÎÑ§Éú½øĞĞÅÅĞò
+    static bool comp(StudentData &cour1, StudentData &cour2);               //×Ô¶¨Òå±È½Ï±ê×¼
+    Course &operator= (const Course &cour);                                 //ÖØÔØ¸³ÖµÔËËã·û
+    friend ostream&operator<<(ostream &os, Course &stu);                    //ÖØÔØCourseÊä³öÁ÷
+    friend istream&operator>>(istream &is, Course &stu);                    //ÖØÔØCourseÊäÈëÁ÷
 };
 
 
