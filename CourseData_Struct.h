@@ -12,12 +12,12 @@ class Course;
 
 struct CourseData
 {
-    string _courseID;                       //课程代码
-    string _courseName;                     //课程名称
-    string _coursePeriod;                   //总学时
-    string _courseCredit;                   //学分
-    string _courseSemester;                 //开课学期
-    friend ostream&operator<<(ostream &os,CourseData &cour);
+	string _courseID;					//课程代码
+	string _courseName;					//课程名称
+	string _coursePeriod;				//总学时
+	string _courseCredit;				//学分
+	string _courseSemester;				//开课学期
+	friend ostream&operator<<(ostream &os,CourseData &cour);
 };
 
 #endif //SYSTEMDESIGN_COURSEDATA_STRUCT_H

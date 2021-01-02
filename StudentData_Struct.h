@@ -12,12 +12,12 @@ class Student;
 
 struct StudentData
 {
-    string _studentID;                      //学号
-    string _studentName;                    //姓名
-    string _studentDepartment;              //系别
-    string _studentClass;                   //班级
-    string _studentPhoneNumber;             //联系方式
-    friend ostream&operator<<(ostream &os,StudentData &stu);
+	string _studentID;					//学号
+	string _studentName;				//姓名
+	string _studentDepartment;			//系别
+	string _studentClass;				//班级
+	string _studentPhoneNumber;			//联系方式
+	friend ostream&operator<<(ostream &os,StudentData &stu);
 };
 
 #endif //SYSTEMDESIGN_STUDENTDATA_STRUCT_H

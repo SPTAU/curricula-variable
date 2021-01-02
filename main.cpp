@@ -15,7 +15,7 @@ using namespace std;
 
 int main()
 {
-    Control C;
-    C.Menu();
-    return 0;
+	Control C;
+	C.Menu();
+	return 0;
 }
