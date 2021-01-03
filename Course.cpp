@@ -32,22 +32,14 @@ Course::Course(string &id,string &name,string &period,
 	_maximum = maximum;
 	_studentAmount = 0;
 }
-Course::Course(Course &cour)
-{
-	_id.assign(cour._id);
-	_name.assign(cour._name);
-	_period.assign(cour._period);
-	_credit.assign(cour._credit);
-	_semester.assign(cour._semester);
-	_maximum = cour._maximum;
-	_studentAmount = cour._studentAmount;
-}
 Course::~Course()
 {
 	for (int i=0;i<_studentAmount;i++)
 	{
 		Delete(studentDV[i]._studentID);
 	}
+	studentDV.clear();
+	studentDM.clear();
 }
 
 void Course::SetID(string &id)					//设置课程代码
@@ -124,23 +116,33 @@ void Course::DisplayCourse()					//显示选课信息
 }
 void Course::DisplayStudent()					//显示选课学生信息
 {
-	for (int i=0;i<_studentAmount;i++)
-	{
-		cout << studentDV[i] << endl;
-	}
+    for(studentDVI = studentDV.begin();studentDVI != studentDV.end();++studentDVI)
+    {
+        cout << *studentDVI << endl;
+    }
 }
 void Course::Sort()								//对选课学生进行排序
 {
-	studentDM.clear();
-	sort(studentDV.begin(), studentDV.end(), comp);
-	for(int i=0;i<_studentAmount;i++)
-	{
-		studentDM.insert(make_pair(studentDV[i]._studentID, i));
-	}
+    if (studentDV.size() > 1)
+    {
+        studentDM.clear();
+        sort(studentDV.begin(), studentDV.end(), comp);
+        for(int i=0;i<_studentAmount;i++)
+        {
+            studentDM.insert(make_pair(studentDV[i]._studentID, i));
+        }
+    }
 }
 bool Course::comp(StudentData &stu1,StudentData &stu2)		//自定义比较标准
 {
-	bool index = (stu1._studentID < stu2._studentID);
+    stringstream stream;
+    stream << stu1._studentID;
+    int studentID1;
+    stream >> studentID1;
+    stream << stu2._studentID;
+    int studentID2;
+    stream >> studentID2;
+	bool index = (studentID1 < studentID2);
 	return index;
 }
 Course& Course::operator= (const Course& cour)				//重载赋值运算符
@@ -151,4 +153,5 @@ Course& Course::operator= (const Course& cour)				//重载赋值运算符
 	_credit.assign(cour._credit);
 	_semester.assign(cour._semester);
 	_maximum = cour._maximum;
+    return *this;
 }

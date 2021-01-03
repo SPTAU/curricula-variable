@@ -33,23 +33,15 @@ Student::Student(string &id, string &name, string &gender, string &age, string &
 	_class.assign(classes);
 	_phoneNumber.assign(phoneNumber);
 }
-Student::Student(Student &stu)
-{
-	_id.assign(stu._id);
-	_name.assign(stu._name);
-	_gender.assign(stu._gender);
-	_age.assign(stu._age);
-	_department.assign(stu._department);
-	_class.assign(stu._class);
-	_phoneNumber.assign(stu._phoneNumber);
-	_courseAmount = stu._courseAmount;
-}
+
 Student::~Student()
 {
 	for (int i=0;i<_courseAmount;i++)
 	{
 		Delete(courseDV[i]._courseID, false);	//依次退选已选课程
 	}
+	courseDV.clear();
+	courseDM.clear();
 }
 
 void Student::SetID(string &id)					//设置学号
@@ -152,7 +144,6 @@ void Student::Add(Course &cour, bool mode)		//添加课程
 		struct CourseData tmp = {cour.GetID(), cour.GetName(), cour.GetPeriod(), cour.GetCredit(), cour.GetSemester()};
 		courseDV.push_back(tmp);				//在vector最后添加元素
 		courseDM.insert(make_pair(cour.GetID(), courseDV.size() - 1));	//在map最后插入元素
-		_courseAmount = courseDV.size();		//更新选课数目
 		Sort();									//容器排序
 		cour.Add(*this);						//回调Course类成员函数添加学生信息
 	}
@@ -189,23 +180,33 @@ void Student::DisplayStudent()					//显示学生信息
 }
 void Student::DisplayCourse()					//显示选课信息
 {
-	for (int i=0;i<_courseAmount;i++)
-	{
-		cout << courseDV[i] << endl;			//依次输出所选课程
-	}
+    for(courseDVI = courseDV.begin();courseDVI != courseDV.end();++courseDVI)
+    {
+        cout << *courseDVI << endl;
+    }
 }
 void Student::Sort()							//对所选课程进行排序
 {
-	courseDM.clear();											//清空map容器
-	sort(courseDV.begin(), courseDV.end(), comp);				//对vector容器内元素排序
-	for(int i=0;i<_courseAmount;i++)
-	{
-		courseDM.insert(make_pair(courseDV[i]._courseID, i));	//依次插入map元素
-	}
+    if (courseDV.size() > 1)
+    {
+        courseDM.clear();											//清空map容器
+        sort(courseDV.begin(), courseDV.end(), comp);				//对vector容器内元素排序
+        for(int i=0;i<_courseAmount;i++)
+        {
+            courseDM.insert(make_pair(courseDV[i]._courseID, i));	//依次插入map元素
+        }
+    }
 }
 bool Student::comp(CourseData &cour1,CourseData &cour2)			//自定义比较标准
 {
-	bool index = (cour1._courseID < cour2._courseID);
+    stringstream stream;
+    stream << cour1._courseID;
+    int courseID1;
+    stream >> courseID1;
+    stream << cour2._courseID;
+    int courseID2;
+    stream >> courseID2;
+	bool index = (courseID1 < courseID2);
 	return index;
 }
 Student& Student::operator= (const Student &stu)				//重载赋值运算符
@@ -217,4 +218,5 @@ Student& Student::operator= (const Student &stu)				//重载赋值运算符
 	_department.assign(stu._department);
 	_class.assign(stu._class);
 	_phoneNumber.assign(stu._phoneNumber);
+    return *this;
 }

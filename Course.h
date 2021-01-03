@@ -9,6 +9,8 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <algorithm>
+#include <sstream>
 #include "StudentData_Struct.h"
 using namespace std;
 
@@ -20,7 +22,6 @@ public:
 	Course();
 	Course(string &id,string &name,string &period,
 		string &credit,string &semester,int &maximum);
-	Course(Course& cour);
 	~Course();
 private:
 	string _id;					//课程代码
@@ -32,6 +33,7 @@ private:
 	int _studentAmount;			//选修学生数目
 public:
 	vector<StudentData> studentDV;			//StudentData的Vector容器
+    vector<StudentData>::iterator studentDVI;			//StudentData的Vector容器的迭代器
 	map<string,int> studentDM;				//StudentData的Map容器
 	map<string,int>::iterator studentDMI;	//StudentData的Map容器的迭代器
 	void SetID(string &id);					//设置课程代码

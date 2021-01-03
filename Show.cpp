@@ -10,16 +10,16 @@ using namespace std;
 void ShowMainMenu()										//主菜单
 {
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "				欢迎进入		学生选修课程系统		" << endl;
-	cout << "\t\t\t\t" << "	*********************************************" << endl;
+	cout << "\t\t\t\t" << "             欢迎进入学生选修课程系统		" << endl;
+	cout << "\t\t\t\t" << "*********************************************" << endl;
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "					1.  学生身份登录				" << endl;
-	cout << "\t\t\t\t" << "					2.  管理员身份登录			" << endl;
-	cout << "\t\t\t\t" << "					3.  保存数据					" << endl;
-	cout << "\t\t\t\t" << "					4.  加载数据					" << endl;
-	cout << "\t\t\t\t" << "					5.  退出						" << endl;
+	cout << "\t\t\t\t" << "                1.  学生身份登录				" << endl;
+	cout << "\t\t\t\t" << "                2.  管理员身份登录			" << endl;
+	cout << "\t\t\t\t" << "                3.  保存数据					" << endl;
+	cout << "\t\t\t\t" << "                4.  加载数据					" << endl;
+	cout << "\t\t\t\t" << "                5.  退出						" << endl;
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "	*********************************************" << endl;
+	cout << "\t\t\t\t" << "*********************************************" << endl;
 	cout << "\n 请输入操作对应序号： ";
 }
 void ShowStudentLogInID()								//学生身份登录学号验证
@@ -37,58 +37,58 @@ void ShowManagementLogIn()								//管理员身份登录密码验证
 void ShowStudentMenu()									//学生操作菜单
 {
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "					学生操作菜单					" << endl;
-	cout << "\t\t\t\t" << "	********************************************" << endl;
+	cout << "\t\t\t\t" << "                学生操作菜单					" << endl;
+	cout << "\t\t\t\t" << "********************************************" << endl;
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "					1. 选课						" << endl;
-	cout << "\t\t\t\t" << "					2. 退课						" << endl;
-	cout << "\t\t\t\t" << "					3. 个人信息					" << endl;
-	cout << "\t\t\t\t" << "					4. 返回上一层				" << endl;
+	cout << "\t\t\t\t" << "                1. 选课						" << endl;
+	cout << "\t\t\t\t" << "                2. 退课						" << endl;
+	cout << "\t\t\t\t" << "                3. 个人信息					" << endl;
+	cout << "\t\t\t\t" << "                4. 返回上一层				" << endl;
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "	********************************************" << endl;
+	cout << "\t\t\t\t" << "********************************************" << endl;
 	cout << "\n 请输入操作对应序号： ";
 }
 void ShowStudentAddCourseMenu()							//选课菜单
 {
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "					学生选课菜单					" << endl;
-	cout << "\t\t\t\t" << "	********************************************" << endl;
+	cout << "\t\t\t\t" << "                   学生选课菜单					" << endl;
+	cout << "\t\t\t\t" << "********************************************" << endl;
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "				1. 显示全部课程					" << endl;
-	cout << "\t\t\t\t" << "				2. 按课程代码查询选修课			" << endl;
-	cout << "\t\t\t\t" << "				3. 按课程名称查询选修课			" << endl;
-	cout << "\t\t\t\t" << "				4. 返回上一层					" << endl;
+	cout << "\t\t\t\t" << "                1. 显示全部课程					" << endl;
+	cout << "\t\t\t\t" << "                2. 按课程代码查询选修课			" << endl;
+	cout << "\t\t\t\t" << "                3. 按课程名称查询选修课			" << endl;
+	cout << "\t\t\t\t" << "                4. 返回上一层					" << endl;
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "	********************************************" << endl;
+	cout << "\t\t\t\t" << "********************************************" << endl;
 	cout << "\t\t\t\t" << "\n 请输入操作对应序号： ";
 }
 void ShowManagementMenu()								//管理员操作菜单
 {
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "					管理操作菜单					" << endl;
-	cout << "\t\t\t\t" << "	********************************************" << endl;
+	cout << "\t\t\t\t" << "                管理操作菜单					" << endl;
+	cout << "\t\t\t\t" << "********************************************" << endl;
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "					请选择管理对象				" << endl;
-	cout << "\t\t\t\t" << "					1. 学生						" << endl;
-	cout << "\t\t\t\t" << "					2. 课程						" << endl;
-	cout << "\t\t\t\t" << "					3. 返回上一层				" << endl;
+	cout << "\t\t\t\t" << "                请选择管理对象				" << endl;
+	cout << "\t\t\t\t" << "                1. 学生						" << endl;
+	cout << "\t\t\t\t" << "                2. 课程						" << endl;
+	cout << "\t\t\t\t" << "                3. 返回上一层				" << endl;
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "	********************************************" << endl;
+	cout << "\t\t\t\t" << "********************************************" << endl;
 	cout << "\n 请输入操作对应序号： ";
 }
 void ShowManagementStudentMenu()						//管理学生菜单
 {
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "					管理学生菜单					" << endl;
-	cout << "\t\t\t\t" << "	********************************************" << endl;
+	cout << "\t\t\t\t" << "                管理学生菜单					" << endl;
+	cout << "\t\t\t\t" << "********************************************" << endl;
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "					1. 添加学生					" << endl;
-	cout << "\t\t\t\t" << "					2. 删除学生					" << endl;
-	cout << "\t\t\t\t" << "					3. 编辑学生					" << endl;
-	cout << "\t\t\t\t" << "					4. 查询学生					" << endl;
-	cout << "\t\t\t\t" << "					5. 显示学生					" << endl;
-	cout << "\t\t\t\t" << "					6. 统计学生					" << endl;
-	cout << "\t\t\t\t" << "					7. 返回上一层				" << endl;
+	cout << "\t\t\t\t" << "                1. 添加学生					" << endl;
+	cout << "\t\t\t\t" << "                2. 删除学生					" << endl;
+	cout << "\t\t\t\t" << "                3. 编辑学生					" << endl;
+	cout << "\t\t\t\t" << "                4. 查询学生					" << endl;
+	cout << "\t\t\t\t" << "                5. 显示学生					" << endl;
+	cout << "\t\t\t\t" << "                6. 统计学生					" << endl;
+	cout << "\t\t\t\t" << "                7. 返回上一层				" << endl;
 	cout << "\n" << endl;
 	cout << "\t\t\t\t" << "********************************************" << endl;
 	cout << "\n 请输入操作对应序号： ";
@@ -96,46 +96,46 @@ void ShowManagementStudentMenu()						//管理学生菜单
 void ShowFindStudentMenu()								//查询学生操作菜单
 {
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "					查询操作菜单					" << endl;
-	cout << "\t\t\t\t" << "	********************************************" << endl;
+	cout << "\t\t\t\t" << "                查询操作菜单					" << endl;
+	cout << "\t\t\t\t" << "********************************************" << endl;
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "					请选择查询模式				" << endl;
-	cout << "\t\t\t\t" << "					1. 学生学号					" << endl;
-	cout << "\t\t\t\t" << "					2. 学生姓名					" << endl;
-	cout << "\t\t\t\t" << "					3. 返回上一层				" << endl;
+	cout << "\t\t\t\t" << "                请选择查询模式				" << endl;
+	cout << "\t\t\t\t" << "                1. 学生学号					" << endl;
+	cout << "\t\t\t\t" << "                2. 学生姓名					" << endl;
+	cout << "\t\t\t\t" << "                3. 返回上一层				" << endl;
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "	********************************************" << endl;
+	cout << "\t\t\t\t" << "********************************************" << endl;
 	cout << "\n 请输入操作对应序号： ";
 }
 void ShowManagementCourseMenu()							//管理课程菜单
 {
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "					管理课程菜单					" << endl;
-	cout << "\t\t\t\t" << "	********************************************" << endl;
+	cout << "\t\t\t\t" << "                管理课程菜单					" << endl;
+	cout << "\t\t\t\t" << "********************************************" << endl;
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "					1. 添加课程					" << endl;
-	cout << "\t\t\t\t" << "					2. 删除课程					" << endl;
-	cout << "\t\t\t\t" << "					3. 编辑课程					" << endl;
-	cout << "\t\t\t\t" << "					4. 查询课程					" << endl;
-	cout << "\t\t\t\t" << "					5. 显示课程					" << endl;
-	cout << "\t\t\t\t" << "					6. 统计课程					" << endl;
-	cout << "\t\t\t\t" << "					7. 返回上一层				" << endl;
+	cout << "\t\t\t\t" << "                1. 添加课程					" << endl;
+	cout << "\t\t\t\t" << "                2. 删除课程					" << endl;
+	cout << "\t\t\t\t" << "                3. 编辑课程					" << endl;
+	cout << "\t\t\t\t" << "                4. 查询课程					" << endl;
+	cout << "\t\t\t\t" << "                5. 显示课程					" << endl;
+	cout << "\t\t\t\t" << "                6. 统计课程					" << endl;
+	cout << "\t\t\t\t" << "                7. 返回上一层				" << endl;
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "	********************************************" << endl;
+	cout << "\t\t\t\t" << "********************************************" << endl;
 	cout << "\n 请输入操作对应序号： ";
 }
 void ShowFindCourseMenu()								//查询课程操作菜单
 {
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "					查询操作菜单					" << endl;
-	cout << "\t\t\t\t" << "	********************************************" << endl;
+	cout << "\t\t\t\t" << "                查询操作菜单					" << endl;
+	cout << "\t\t\t\t" << "********************************************" << endl;
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "					请选择查询模式				" << endl;
-	cout << "\t\t\t\t" << "					1. 课程代码					" << endl;
-	cout << "\t\t\t\t" << "					2. 课程名称					" << endl;
-	cout << "\t\t\t\t" << "					3. 返回上一层				" << endl;
+	cout << "\t\t\t\t" << "                请选择查询模式				" << endl;
+	cout << "\t\t\t\t" << "                1. 课程代码					" << endl;
+	cout << "\t\t\t\t" << "                2. 课程名称					" << endl;
+	cout << "\t\t\t\t" << "                3. 返回上一层				" << endl;
 	cout << "\n" << endl;
-	cout << "\t\t\t\t" << "	********************************************" << endl;
+	cout << "\t\t\t\t" << "********************************************" << endl;
 	cout << "\n 请输入操作对应序号： ";
 }
 void ShowCourseDataHeader()								//课程列表表头

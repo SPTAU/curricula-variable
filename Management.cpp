@@ -20,7 +20,13 @@ Management::Management()
 	_studentTotal = 0;
 	_courseTotal = 0;
 }
-Management::~Management() = default;
+Management::~Management()
+{
+    studentV.clear();
+    studentM.clear();
+    courseV.clear();
+    courseM.clear();
+}
 
 void Management::AddStudent()								//管理员添加课程
 {
@@ -65,16 +71,16 @@ void Management::DeleteStudent()							//管理员删除学生
 		cin >> studentID;
 		if(studentID != "-1")								//若输入不为"-1"
 		{
-			studentMI = studentM.find(studentID);			//查询目标课程
-			if (studentMI != studentM.end())				//若找到目标课程
+			studentMI = studentM.find(studentID);			//查询目标学生
+			if (studentMI != studentM.end())				//若找到目标学生
 			{
 				studentV.erase(studentV.begin() + studentM[studentID]);	//删除vector中元素
 				studentM.erase(studentMI);					//删除map中元素
-				_studentTotal = studentV.size();			//更新选课数目
+				_studentTotal = studentV.size();			//更新学生数目
 				SortStudent();								//容器排序
 				cout << "成功删除学生！" << endl;
 			}
-			else											//若未找到目标课程
+			else											//若未找到目标学生
 			{
 				cout << "记录为空！" << endl;
 			}
@@ -186,11 +192,12 @@ void Management::SaveStudent()								//保存学生数据
 		{
 			outfile << studentV[i].GetID() << "\t" << studentV[i].GetName() << "\t" << studentV[i].GetGender() << "\t";
 			outfile << studentV[i].GetAge() << "\t" << studentV[i].GetDepartment() << studentV[i].GetClass() << "\t";
-			outfile << studentV[i].GetPhoneNumber() << "\t" << studentV[i].GetCourseAmount() << endl;
+			outfile << studentV[i].GetPhoneNumber() << "\t" << studentV[i].GetCourseAmount();
 			for(int j = 0;j<studentV[i].GetCourseAmount();j++)
 			{
-				outfile << studentV[i].GetCourseID(j) << endl;
+				outfile << studentV[i].GetCourseID(j);
 			}
+			outfile << endl;
 		}
 		outfile << "-1" << endl;							//输入结束标识
 		outfile.close();									//关闭文件
@@ -206,7 +213,6 @@ void Management::SaveStudent()								//保存学生数据
 void Management::LoadStudent()								//加载学生数据
 {
 	int tmpCourseAmount;
-	string tmpCourseID;
 	Student tmpStudent;
 	ifstream infile("F:\\Data\\Program\\CPP\\SystemDesign\\3118002296_student.txt",ios::in);				//只读方式打开文件
 	if(infile)
@@ -224,12 +230,16 @@ void Management::LoadStudent()								//加载学生数据
 				infile >> tmpCourseAmount;
 				stream << tmpCourseAmount;					//String to Int转换
 				stream >> courseAmount;
-				for (int i=0;i < courseAmount; i++)			//判断学生已选课程数目
-				{
-					tmpStudent.SetCourseAmount(i+1);		//设置学生已选课程数目
-					infile >> tmpCourseID;
-					tmpStudent.Add(courseV[courseM[tmpCourseID]], false);
-				}
+                int i = 0;
+                while (courseAmount != i)
+                {
+                    tmpStudent.SetCourseAmount(i+1);		//设置学生已选课程数目
+                    string tmpCourseID;
+                    infile >> tmpCourseID;
+                    tmpStudent.Add(courseV[courseM[tmpCourseID]], false);
+                    i++;
+                }
+                tmpStudent.SetCourseAmount(courseAmount);		//设置学生已选课程数目
 				tmpStudent.DisplayStudent();				//显示已读入数据
 				studentV.push_back(tmpStudent);				//载入到Vector容器中
 				studentM.insert(make_pair(tmpStudent.GetID(), studentV.size() - 1));	//载入Map容器中
@@ -262,7 +272,14 @@ void Management::SortStudent()								//对学生容器内学生进行排序
 }
 bool Management::CompStudent(Student &stu1, Student &stu2)	//自定义比较标准
 {
-	bool index = (stu1.GetID() < stu2.GetID());				//仅比较学生学号
+    stringstream stream;
+    stream << stu1.GetID();
+    int studentID1;
+    stream >> studentID1;
+    stream << stu2.GetID();
+    int studentID2;
+    stream >> studentID2;
+    bool index = (studentID1 < studentID2);
 	return index;
 }
 void Management::StudentAddCourse(string &courseID)			//学生选修课程
@@ -456,7 +473,7 @@ void Management::SaveCourse()								//保存课程数据
 		for(int i = 0;i < _courseTotal;i++)					//依次导入课程信息
 		{
 			outfile << courseV[i].GetID() << "\t" << courseV[i].GetName() << "\t" << courseV[i].GetPeriod() << "\t";
-			outfile << courseV[i].GetCredit() << "\t" << courseV[i].GetSemester() << courseV[i].GetMaximum() << endl;
+			outfile << courseV[i].GetCredit() << "\t" << courseV[i].GetSemester() << "\t" << courseV[i].GetMaximum() << endl;
 		}
 		outfile << "-1" << endl;							//输入结束标识
 		outfile.close();									//关闭文件
@@ -508,15 +525,25 @@ void Management::LoadCourse()								//加载课程数据
 }
 void Management::SortCourse()								//对课程容器内课程进行排序
 {
-	courseM.clear();										//清空map容器
-	sort(courseV.begin(), courseV.end(), CompCourse);		//对vector容器内元素排序
-	for(int i=0;i<_courseTotal;i++)
-	{
-		courseM.insert(make_pair(courseV[i].GetID(), i));	//依次插入map元素
-	}
+    if (courseV.size() > 1)
+    {
+        courseM.clear();										//清空map容器
+        sort(courseV.begin(), courseV.end(), CompCourse);		//对vector容器内元素排序
+        for(int i=0;i<_courseTotal;i++)
+        {
+            courseM.insert(make_pair(courseV[i].GetID(), i));	//依次插入map元素
+        }
+    }
 }
 bool Management::CompCourse(Course &cour1, Course &cour2)	//自定义比较标准
 {
-	bool index = (cour1.GetID() < cour2.GetID());			//仅比较课程代码
+    stringstream stream;
+    stream << cour1.GetID();
+    int courseID1;
+    stream >> courseID1;
+    stream << cour2.GetID();
+    int courseID2;
+    stream >> courseID2;
+    bool index = (courseID1 < courseID2);
 	return index;
 }
